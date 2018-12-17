@@ -6,49 +6,44 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2018/12/17 15:08:51 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/17 13:52:46 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME				=	libftprintf.a
+NAME				=	test
 
 BINDIR				=	.
 
 SRCSDIR   			=	srcs
 
-SRCS			   :=	$(SRCSDIR)/ft_printf.c				\
+SRCS			   :=	$(SRCSDIR)/main.c					\
 
 OBJSDIR   			=	objs
 
 OBJS  			   :=	$(SRCS:$(SRCSDIR)/%.c=$(OBJSDIR)/%.o)
 
-DEPENDENCIES		=	$(OBJS:%.o=%.d)
+DEPENDENCIES		= 	$(OBJS:%.o=%.d)
 
-INCLUDES			=	-I libft/includes 					\
+INCLUDES			=   -I ../libft/includes 				\
 						-I includes							\
 
-LIBS				=	-L libft/ -lft						\
-
-CC					=	gcc
+LIBS				=	-L ../libft/ -lft					\
 
 CFLAGS			   +=	-Wall -Werror -Wextra
 
-all					:	libs $(BINDIR)/$(NAME)
+CC					=	gcc
 
-.PHONY				:	libs
-libs				:
-						make -C libft
+all					:	$(BINDIR)/$(NAME)
 
 $(BINDIR)/$(NAME)	: 	$(OBJS)
-						cp libft/libft.a $@
+						make -C libft/
 						ar rc $@ $(OBJS)
-						ranlib $@
 
 -include $(DEPENDENCIES)
 
 $(OBJS)				: 	$(OBJSDIR)/%.o : $(SRCSDIR)/%.c
 						mkdir -p objs
-						$(CC) $(CFLAGS) $(INCLUDES) -MMD -c $< -o $@
+						$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) -MMD -c $< -o $@
 
 .PHONY				:	clean
 clean				:
