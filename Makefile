@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2018/12/17 15:08:51 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/17 15:15:44 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,6 @@ DEPENDENCIES		=	$(OBJS:%.o=%.d)
 
 INCLUDES			=	-I libft/includes 					\
 						-I includes							\
-
-LIBS				=	-L libft/ -lft						\
 
 CC					=	gcc
 
