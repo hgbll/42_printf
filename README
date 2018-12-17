@@ -6,3 +6,9 @@
 
 - Misc
 > fct autorisees : write, malloc, free, exit, stdarg
+> conversions a gerer : csp
+						diouxX avec hh, h, l, ll
+						f avec l, L
+> gerer %%, flags : #0-+ et espace
+> gerer taille minimum du champ
+> gerer la precision
