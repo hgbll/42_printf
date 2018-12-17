@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2018/12/17 13:28:52 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/17 13:50:55 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,7 @@ BINDIR				=	.
 
 SRCSDIR   			=	srcs
 
-SRCS			   :=	$(SRCSDIR)/main.c					\
-						$(SRCSDIR)/printf.c					\
-						
+SRCS			   :=	$(SRCSDIR)/printf.c					\
 
 OBJSDIR   			=	objs
 
@@ -28,12 +26,8 @@ DEPENDENCIES		= 	$(OBJS:%.o=%.d)
 
 INCLUDES			=   -I libft/includes 					\
 						-I includes							\
-						-I minilibx_macos
 
 LIBS				=	-L libft/ -lft						\
-						-L minilibx_macos/ -lmlx 			\
-						-framework OpenGL					\
-						-framework AppKit
 
 CFLAGS			   +=	-Wall -Werror -Wextra
 
@@ -42,22 +36,19 @@ CC					=	gcc
 all					:	$(BINDIR)/$(NAME)
 
 $(BINDIR)/$(NAME)	: 	$(OBJS)
-						make -C minilibx_macos/
 						make -C libft/
-						$(CC) -o $@ $(CFLAGS) $(INCLUDES) $(LIBS) $(OBJS)
+						ar rc $@ $(OBJS)
 
 -include $(DEPENDENCIES)
 
 $(OBJS)				: 	$(OBJSDIR)/%.o : $(SRCSDIR)/%.c
 						mkdir -p objs
-						$(CC) $(CFLAGS) $(INCLUDES) -MMD -c $< -o $@
+						$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) -MMD -c $< -o $@
 
 .PHONY				:	clean
 clean				:
-						rm -f $(OBJS)
-						rm -f $(DEPENDENCIES)
+						rm -f $(OBJS) $(DEPENDENCIES)
 						rm -rf $(OBJSDIR)
-						make clean -C minilibx_macos/
 						make clean -C libft/
 
 .PHONY				:	fclean
