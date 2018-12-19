@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2018/12/19 10:00:37 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/19 16:16:24 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ BINDIR				=	.
 SRCSDIR   			=	srcs
 
 SRCS			   :=	$(SRCSDIR)/main.c					\
+						$(SRCSDIR)/test_string.c			\
+						$(SRCSDIR)/test_int.c
 
 OBJSDIR   			=	objs
 
@@ -31,7 +33,7 @@ LIBS				=	-L ../ -lftprintf					\
 
 CC					=	gcc
 
-CFLAGS			   +=	-Wall -Werror -Wextra
+CFLAGS			   +=	-g
 
 all					:	libs $(BINDIR)/$(NAME)
 

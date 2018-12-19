@@ -6,13 +6,18 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 13:54:39 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/17 14:00:14 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/19 17:27:14 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-int				printf(const char *format, ...);
+typedef struct			s_params
+{
+	
+}						t_params;
+
+int						printf(const char *format, ...);
 
 #endif

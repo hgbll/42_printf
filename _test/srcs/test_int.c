@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   test_int.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/17 15:37:12 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/17 15:38:10 by hbally           ###   ########.fr       */
+/*   Created: 2018/12/19 16:08:42 by hbally            #+#    #+#             */
+/*   Updated: 2018/12/19 17:03:01 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#include "ft_printf_test.h"
 
-# include "stdio.h"
+void		test_int(void)
+{
+	int a;
+	int b;
+	int ret;
 
-int		ft_printf(const char *format, ...);
+	a = INT_MAX;
+	b = INT_MIN;
 
-#endif
+	printf("___INT___\n");
+	ret = printf("%d\n", a);
+	printf("%d\n", ret);
+	//ret = ft_printf("%d", a);
+	//ft_printf("%d", ret);
+}

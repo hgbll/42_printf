@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/17 15:20:10 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/19 16:16:05 by hbally           ###   ########.fr       */
+/*   Created: 2018/12/17 15:37:12 by hbally            #+#    #+#             */
+/*   Updated: 2018/12/19 16:17:52 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_test.h"
+#ifndef FT_PRINTF_TEST_H
+# define FT_PRINTF_TEST_H
 
-int		main(void)
-{
-//	test_char();
-	test_string();
-	test_int();
-//	test_real();
-//	test_misc();
-	return (0);
-}
+# include "stdio.h"
+# include "limits.h"
+
+int		ft_printf(const char *format, ...);
+void	test_char();
+void	test_string();
+void 	test_int();
+void	test_real();
+void	test_misc();
+
+#endif

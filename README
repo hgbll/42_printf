@@ -12,6 +12,8 @@
 > return the number of characters printed (not including \0 in s)
 > if error, return negative value
 
+%[parameter][flags][width][.precision][length]type
+
 non int
 __________________________________________________
 
@@ -36,7 +38,6 @@ hh : expect an int promoted from a char
 h  : expect an int promoted from a short
 l  : expect a long (no effect on floating point)
 ll : expect a long long
-
 
 
 floating
