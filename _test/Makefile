@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2018/12/17 15:34:06 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/19 10:00:37 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,10 @@ all					:	libs $(BINDIR)/$(NAME)
 .PHONY				:	libs
 libs				:
 						make -C ../
+
+.PHONY				:	run
+run					:	all
+						./test
 
 $(BINDIR)/$(NAME)	: 	$(OBJS)
 						$(CC) -o $@ $(CFLAGS) $(OBJS) $(LIBS)

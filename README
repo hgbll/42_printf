@@ -6,9 +6,88 @@
 
 - Misc
 > fct autorisees : write, malloc, free, exit, stdarg
-> conversions a gerer : csp
-						diouxX avec hh, h, l, ll
-						f avec l, L
-> gerer %%, flags : #0-+ et espace
-> gerer taille minimum du champ
-> gerer la precision
+
+- ToDo
+
+> return the number of characters printed (not including \0 in s)
+> if error, return negative value
+
+non int
+__________________________________________________
+
+c : char
+s : string
+p : pointer
+
+
+int
+___________________________________________________
+
+d : decimal
+i : (same)
+o : octal
+u : uint
+x : hexa lower
+X : hexa upper 
+%% : print a literal % character
+
+flags
+hh : expect an int promoted from a char
+h  : expect an int promoted from a short
+l  : expect a long (no effect on floating point)
+ll : expect a long long
+
+
+
+floating
+___________________________________________________
+
+f  : double in normal notation, fixed point (works w/ float)
+     if no precision, default is 6
+	 if decimal point, at least one digit
+	  if . or .0, rounded	
+	handle 0/-0
+l  : no effect ? 
+L  : expect a long double
+
+
+
+other flags : 
+_____________________________________________
+
+#  : alternate forms
+	> for f, the output contains a decimal point
+	> for o, x and X, prints 0, 0x, 0X in front
+0  : when width is specified, prepends 0 instead of sp
+-  : left align output
++  : prepend + sign in front of positive numbers (0?)
+sp : prepens a ' ' for positive
+
+(order + >> ' ' >> default)
+
+
+
+width field :
+________________________________________________
+
+In no case does a non-existent or small field width cause truncation of a numeric field; if the result of a conversion is wider than the field width, the field is expanded to contain the conversion result.
+minimum char to output
+can be numeric
+dynamic value is bonus, format is  (%*d", 5, 10) [output '   10']
+if leading zero > prepend zeros
+if negative value > left align
+
+
+________________________________________________
+precision
+
+a period followed by an optional digit string. no digit string = precision is zero
+> minimum number of digits for diouxX
+> number of digits after decimal point for (aAeEfF)
+> maximum number of char to print from a string
+
+______________________________________________
+
+tips
+use a pipe that processes all the things
+apply from right to left
