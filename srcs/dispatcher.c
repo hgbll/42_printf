@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_int.c                                         :+:      :+:    :+:   */
+/*   dispatcher.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/19 16:08:42 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/19 19:24:57 by hbally           ###   ########.fr       */
+/*   Created: 2018/12/19 18:35:41 by hbally            #+#    #+#             */
+/*   Updated: 2018/12/19 19:25:15 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_test.h"
+#include <stdarg.h>
+#include <string.h>
+#include "ft_printf.h"
 
-void		test_int(void)
+size_t				dispatcher(const char *format,
+								size_t *head,
+								va_list args,
+								t_params *params)
 {
-	int a;
-	int b;
-	int ret;
+	static size_t	head_old;
+	size_t			printed;
 
-	a = INT_MAX;
-	b = INT_MIN;
-
-	printf("___INT___\n");
-	ret = printf("%d\n", a);
-	printf("%d\n", ret);
-	//ret = ft_printf("%d", a);
-	//printf("%d\n", ret);
-	printf("%+00.5ld", (long)a);
+	return (printed)
 }
