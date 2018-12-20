@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 13:44:30 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/20 16:18:41 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/20 16:48:00 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,11 @@ int				ft_printf(const char *format, ...)
 		head = 0;
 		while (format[head])
 		{
-			ft_putchar(format[head]);
-			if (format[head] == '%' || !format[head + 1])
+			if (format[head] == '%')
 				printed += printer(format, &head, &args, &index);
-			if (format[head])
-				head++;
+			head++;
 		}
+		printed += printer(format, &head, &args, &index);
 		va_end(args);
 	}
 	return (printed);

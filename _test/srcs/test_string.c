@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 15:58:36 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/20 16:26:30 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/20 16:45:10 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ void		test_string(void)
 
 	printf("___STRINGS___\n");
 
-	ret = printf("%\n");
-	printf("%d\n---\n", ret);
-	ret = ft_printf("%\n");
-	printf("%d\n---\n", ret);
+//	ret = printf("%\n");
+//	printf("%d\n---\n", ret);
+//	ret = ft_printf("%\n");
+//	printf("%d\n---\n", ret);
 
 	ret = printf("0123456789");
 	printf("\n%d\n---\n", ret);
-	ret = ft_printf("0123456789\n");
+	ret = ft_printf("0123456789");
 	printf("\n%d\n---\n", ret);
 
 	ret = printf("%s\n", s);
