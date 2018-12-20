@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2018/12/19 18:35:40 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/20 15:15:21 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ BINDIR				=	.
 SRCSDIR   			=	srcs
 
 SRCS			   :=	$(SRCSDIR)/ft_printf.c				\
-						$(SRCSDIR)/dispatcher.c
+						$(SRCSDIR)/printer.c				\
+						$(SRCSDIR)/parser.c
 
 OBJSDIR   			=	objs
 

@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 13:44:30 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/19 19:26:14 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/20 16:18:41 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,19 @@ int				ft_printf(const char *format, ...)
 	size_t		head;
 	size_t		printed;
 
-	printed_total = 0;
-	ft_bzero(&index, sizeof(t_index));
+	printed = 0;
 	if (format && *format)
 	{
+//		index_init(&index); // bzero inside this
 		va_start(args, format);
-		index_init(&index);
 		head = 0;
 		while (format[head])
 		{
+			ft_putchar(format[head]);
 			if (format[head] == '%' || !format[head + 1])
-				printed += printer(&format, &head, args, &params);
-			head++;
+				printed += printer(format, &head, &args, &index);
+			if (format[head])
+				head++;
 		}
 		va_end(args);
 	}
