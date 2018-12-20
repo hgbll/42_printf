@@ -16,19 +16,19 @@
 # include <stdarg.h>
 # include <string.h> // remove if size_t is not used
 
-typedef struct			s_params
-{
-	char				flags[5];
-	char				length[5];
-	t_type				types[10];
-}						t_params;
-
-typedef struct			s_type
-{
-	char				id;
-	size_t				(*f)(const char*, va_list*, t_params*);
-}						t_type;
-
+//typedef struct			s_params
+//{
+//	char				flags[5];
+//	char				length[5];
+//	t_type				types[10];
+//}						t_params;
+//
+//typedef struct			s_type
+//{
+//	char				id;
+//	size_t				(*f)(const char*, va_list*, t_params*);
+//}						t_type;
+//
 int						printf(const char *format, ...);
 
 #endif

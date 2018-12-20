@@ -12,7 +12,9 @@
 > return the number of characters printed (not including \0 in s)
 > if error, return negative value
 
-%[parameter][flags][width][.precision][length]type
+%[flags][width][.precision][length]type
+
+% ---- +-0# not number ----- char or 0 number dot ------ dot number char ---- char char ---- char
 
 non int
 __________________________________________________

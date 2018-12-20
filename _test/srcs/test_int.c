@@ -22,9 +22,12 @@ void		test_int(void)
 	b = INT_MIN;
 
 	printf("___INT___\n");
+	
 	ret = printf("%d\n", a);
 	printf("%d\n", ret);
+
 	//ret = ft_printf("%d", a);
 	//printf("%d\n", ret);
-	printf("%+00.5ld", (long)a);
+
+	printf("%.6#50f", (double)a);
 }

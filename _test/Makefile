@@ -37,6 +37,10 @@ CFLAGS			   +=	-g
 
 all					:	libs $(BINDIR)/$(NAME)
 
+.PHONY				:	this
+this				:	$(BINDIR)/$(NAME)
+						./test
+
 .PHONY				:	libs
 libs				:
 						make -C ../
