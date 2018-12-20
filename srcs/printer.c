@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:13:36 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/20 16:43:40 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/20 16:57:26 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 
 size_t				printer(const char *format,
 								size_t *head,
-								va_list *args,
-								t_index *index)
+								va_list *args)
 {
 	static size_t	head_old;
 	size_t			printed;
@@ -27,7 +26,7 @@ size_t				printer(const char *format,
 	write(1, &(format[head_old]), *head - head_old);
 	if (format[*head])
 	{
-		printed += parser(format, head, args, index) - 1;
+		printed += parser(format, head, args, index);
 		head_old = *head + 1;
 	}
 	else

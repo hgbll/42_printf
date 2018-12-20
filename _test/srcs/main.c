@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 15:20:10 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/20 15:28:24 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/20 17:43:03 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		main(void)
 {
 //	test_char();
 	test_string();
-//	test_int();
+	test_int();
 //	test_real();
 //	test_misc();
 	return (0);

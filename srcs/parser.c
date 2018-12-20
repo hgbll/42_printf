@@ -6,18 +6,34 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:15:51 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/20 15:54:19 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/20 18:14:02 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "ft_printf.h"
 
-size_t				parser(const char *format,
-						size_t *head,
-							va_list *args,
-							t_index *index)
+static int			find_type()
 {
+
+}
+
+size_t				parser(const char *format,
+							size_t *head,
+							va_list *args)
+{
+	t_index			params;
+
+	ft_bzero(&params, sizeof(t_index));
+	*head++;
+	if (!format[*head])
+		return (0);
+	if (format[*head] == '%')
+	{
+		write(1, format[*head], 1);
+		return (1);
+	}
+	while (format[*head] && params.
 //	if (char is - + sp # 0)
 //		add code of char to flags
 //	if (char is num and not zero)

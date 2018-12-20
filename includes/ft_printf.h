@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 13:54:39 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/20 16:11:14 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/20 17:31:02 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,9 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <string.h> // remove if size_t is not used
+# include <string.h>
 
-typedef struct			s_index
-{
-	char				flags[5];
-}						t_index;
 
-//typedef struct			s_type
-//{
-//	char				id;
-//	size_t				(*f)(const char*, va_list*, t_params*);
-//}						t_type;
-//
 
 /*
 ** DEBUG FUNCTIONS TODO REMOVE
@@ -38,14 +28,23 @@ typedef struct			s_index
 ** ---------------------------
 */
 
+typedef struct			s_index
+{
+	unsigned char		flags;
+	int					width; // check if > 0
+
+}						t_index;
+
+
+
+
+
 int						printf(const char *format, ...);
 size_t					printer(const char *format,
 								size_t *head,
-								va_list *args,
-								t_index *index);
+								va_list *args);
 size_t					parser(const char *format,
 								size_t *head,
-								va_list *args,
-								t_index *index);
+								va_list *args);
 
 #endif
