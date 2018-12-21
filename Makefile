@@ -31,13 +31,13 @@ CC					=	gcc
 
 CFLAGS				+=	-Wall -Werror -Wextra
 
-all					:	libs $(NAME)
+all					:	$(NAME)
 
 .PHONY				:	libs
 libs				:
 						make -C libft
 
-$(NAME)				: 	$(OBJS)
+$(NAME)				: 	libs $(OBJS)
 						cp libft/libft.a $@
 						ar rc $@ $(OBJS)
 						ranlib $@
