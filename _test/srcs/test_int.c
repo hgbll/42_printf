@@ -23,6 +23,9 @@ void		test_int(void)
 
 	printf("___INT___\n");
 	
+	long long alonglong;
+	alonglong = LONG_MAX;
+	printf ("test : %hhlld", alonglong);
 	ret = printf("%d\n", a);
 	printf("%d\n", ret);
 

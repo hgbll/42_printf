@@ -5,8 +5,17 @@ void			test_real(void)
 	float afloat;
 	double adouble;
 	
-	afloat = 0.4999999;
-	adouble = 0.4999999;
+	afloat = 5243905.984038548;
+	adouble = 5243905.984038548;
+	printf("value : \t\n");
+	printf(".\t\t%.f\n", afloat);
+	printf(".\t\t%.f\n", adouble);
+	printf(".99\t\t%.99f\n", afloat);
+	printf(".99\t\t%.99f\n", adouble);
+	printf(".2\t\t%.2f\n", afloat);
+	printf(".2\t\t%.2f\n", adouble);
+	printf("5.2\t\t%5.2f\n", afloat);
+	printf("5.2\t\t%5.2f\n", adouble);
 	printf("value : \t0.4999999\n");
 	printf(".\t\t%.f\n", afloat);
 	printf(".\t\t%.f\n", adouble);

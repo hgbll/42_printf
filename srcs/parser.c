@@ -12,10 +12,16 @@
 
 #include <stdarg.h>
 #include "ft_printf.h"
+#include "libft.h"
 
-static int			find_type()
+static int			check_percent_char(const char *format, size_t *head)
 {
-
+	if (format[*head] == '%')
+	{
+		ft_putchar(format[*head]);
+		return (1);
+	}
+	return (0);
 }
 
 size_t				parser(const char *format,
@@ -23,28 +29,31 @@ size_t				parser(const char *format,
 							va_list *args)
 {
 	t_index			params;
+	int				printed;
 
-	ft_bzero(&params, sizeof(t_index));
-	*head++;
-	if (!format[*head])
+	if (!format[++(*head)])
 		return (0);
-	if (format[*head] == '%')
-	{
-		write(1, format[*head], 1);
+	if (check_percent_char(format, head))
 		return (1);
+	ft_bzero(&params, sizeof(t_index));
+	printed = -1;
+	while (format[*head])
+	{
+		if (!check_flag(format[*head], &params))
+			if (!check_width(format, head, &params))
+				if (!check_precision(format, head, &params))
+					if (!check_length(format, head, &params))
+						printed = dispatcher(format[*head], args, &params);
+		if (printed != -1)
+		{
+			printf("flags > %d\n", params.flags);
+			printf("width > %ld\n", params.width);
+			printf("precision > %ld\n", params.precision);
+			printf("length > %d\n", params.length);
+			return ((size_t)printed);
+		}
+		(*head)++;
 	}
-	while (format[*head] && params.
-//	if (char is - + sp # 0)
-//		add code of char to flags
-//	if (char is num and not zero)
-//		add atoi of next to width, move to next non-num
-//	if (char is .)
-//		add atoi of next to precision, move to next non-num
-//	if (char is length)
-//		add to length
-//	if (char is type)
-//		add to type
+	(*head)--;
 	return (0);
-	//debug
-	format = 0;head =0;args=0, index=0;
 }

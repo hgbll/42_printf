@@ -26,7 +26,7 @@ size_t				printer(const char *format,
 	write(1, &(format[head_old]), *head - head_old);
 	if (format[*head])
 	{
-		printed += parser(format, head, args, index);
+		printed += parser(format, head, args);
 		head_old = *head + 1;
 	}
 	else

@@ -10,7 +10,7 @@
 > fct autorisees : write, malloc, free, exit, stdarg
 
 - ToDo
-
+> what happens when no arg provided but expected an arg
 > return the number of characters printed (not including \0 in s)
 > if error, return negative value
 
@@ -37,7 +37,7 @@ x : hexa lower
 X : hexa upper 
 %% : print a literal % character
 
-flags
+length;
 hh : expect an int promoted from a char
 h  : expect an int promoted from a short
 l  : expect a long (no effect on floating point)

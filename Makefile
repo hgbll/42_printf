@@ -16,7 +16,9 @@ SRCSDIR   			=	srcs
 
 SRCS				:=	$(SRCSDIR)/ft_printf.c				\
 						$(SRCSDIR)/printer.c				\
-						$(SRCSDIR)/parser.c
+						$(SRCSDIR)/parser_checks.c			\
+						$(SRCSDIR)/parser.c					\
+						$(SRCSDIR)/dispatcher.c
 
 OBJSDIR   			=	objs
 
