@@ -15,9 +15,9 @@
 int		main(void)
 {
 //	test_char();
-	test_string();
-	test_int();
-//	test_real();
+//	test_string();
+//	test_int();
+	test_real();
 //	test_misc();
 	return (0);
 }

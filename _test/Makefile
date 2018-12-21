@@ -18,6 +18,7 @@ SRCSDIR   			=	srcs
 
 SRCS			   :=	$(SRCSDIR)/main.c					\
 						$(SRCSDIR)/test_string.c			\
+						$(SRCSDIR)/test_real.c				\
 						$(SRCSDIR)/test_int.c
 
 OBJSDIR   			=	objs
@@ -38,7 +39,8 @@ CFLAGS			   +=	-g
 all					:	libs $(BINDIR)/$(NAME)
 
 .PHONY				:	this
-this				:	$(BINDIR)/$(NAME)
+this				:	$(OBJS)
+						$(CC) -o $(NAME) $(CFLAGS) $(OBJS)
 						./test
 
 .PHONY				:	libs
@@ -49,13 +51,13 @@ libs				:
 run					:	all
 						./test
 
-$(BINDIR)/$(NAME)	: 	$(OBJS) ../libftprintf.a
+$(BINDIR)/$(NAME)	: 	libs $(OBJS) 
 						$(CC) -o $@ $(CFLAGS) $(OBJS) $(LIBS)
 
 -include $(DEPENDENCIES)
 
 $(OBJS)				: 	$(OBJSDIR)/%.o : $(SRCSDIR)/%.c
-						mkdir -p objs
+						@mkdir -p objs
 						$(CC) $(CFLAGS) $(INCLUDES) -MMD -c $< -o $@
 
 .PHONY				:	clean
