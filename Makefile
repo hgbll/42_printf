@@ -12,17 +12,15 @@
 
 NAME				=	libftprintf.a
 
-BINDIR				=	.
-
 SRCSDIR   			=	srcs
 
-SRCS			   :=	$(SRCSDIR)/ft_printf.c				\
+SRCS				:=	$(SRCSDIR)/ft_printf.c				\
 						$(SRCSDIR)/printer.c				\
 						$(SRCSDIR)/parser.c
 
 OBJSDIR   			=	objs
 
-OBJS  			   :=	$(SRCS:$(SRCSDIR)/%.c=$(OBJSDIR)/%.o)
+OBJS				:=	$(SRCS:$(SRCSDIR)/%.c=$(OBJSDIR)/%.o)
 
 DEPENDENCIES		=	$(OBJS:%.o=%.d)
 
@@ -31,15 +29,15 @@ INCLUDES			=	-I libft/includes 					\
 
 CC					=	gcc
 
-CFLAGS			   +=	-Wall -Werror -Wextra
+CFLAGS				+=	-Wall -Werror -Wextra
 
-all					:	libs $(BINDIR)/$(NAME)
+all					:	libs $(NAME)
 
 .PHONY				:	libs
 libs				:
 						make -C libft
 
-$(BINDIR)/$(NAME)	: 	$(OBJS)
+$(NAME)				: 	$(OBJS)
 						cp libft/libft.a $@
 						ar rc $@ $(OBJS)
 						ranlib $@
@@ -47,8 +45,8 @@ $(BINDIR)/$(NAME)	: 	$(OBJS)
 -include $(DEPENDENCIES)
 
 $(OBJS)				: 	$(OBJSDIR)/%.o : $(SRCSDIR)/%.c
-						mkdir -p objs
-						$(CC) $(CFLAGS) $(INCLUDES) -MMD -c $< -o $@
+						@mkdir -p objs
+						$(CC) -o $@ $(CFLAGS) $(INCLUDES) -MMD -c $<
 
 .PHONY				:	clean
 clean				:
@@ -58,7 +56,8 @@ clean				:
 
 .PHONY				:	fclean
 fclean				:	clean
-						rm -f $(BINDIR)/$(NAME)
+						rm -f $(NAME)
 						make fclean -C libft/
 
+.PHONY				:	re
 re					:	fclean all

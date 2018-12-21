@@ -1,7 +1,7 @@
 - Current
 
 - ToDo
-
+> check on makefile if printf sources dont change but libft changes does it recompile
 - AtExit
 
 - Misc
