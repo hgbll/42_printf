@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 15:37:12 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/19 16:17:52 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/22 12:24:00 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "stdio.h"
 # include "limits.h"
+# include "libft.h"
 
 int		ft_printf(const char *format, ...);
 void	test_char();

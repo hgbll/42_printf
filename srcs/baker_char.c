@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   baker_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/17 15:20:10 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/22 17:51:17 by hbally           ###   ########.fr       */
+/*   Created: 2018/12/22 15:19:18 by hbally            #+#    #+#             */
+/*   Updated: 2018/12/22 17:50:52 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_test.h"
+#include "ft_printf.h"
+#include "libft.h"
 
-int		main(void)
+int				baker_char(char c, t_index *params)
 {
-	printf("\n|0       |10       |20\n");
-//	test_string();
-//	test_int();
-	test_real();
-//	test_misc();
-	return (0);
+	params = 0;
+	c = 0;
+	return (1);
 }
+
+int				baker_string(char *s, t_index *params);

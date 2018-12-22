@@ -16,31 +16,31 @@
 ** ...00010 > 0 (2)
 ** ...00100 > - (4)
 ** ...01000 > sp (8)
-** ...10000 > + (16)
+** ...10000 > + (10)
 */
 
 int				check_flag(const char c, t_index *params)
 {
 	if (c == '#')
-		return (params->flags |= 1);
+		return (params->flags |= 0x1);
 	if (c == '0')
-		return (params->flags |= 2);
+		return (params->flags |= 0x2);
 	if (c == '-')
-		return (params->flags |= 4);
+		return (params->flags |= 0x4);
 	if (c == ' ')
-		return (params->flags |= 8);
+		return (params->flags |= 0x8);
 	if (c == '+')
-		return (params->flags |= 16);
+		return (params->flags |= 0x10);
 	return (0);
 }
 
 /*
-** Flag is represented as a bit code
+** Length is represented as a bit code
 ** ...00001 > hh (1)
 ** ...00010 > h (2)
 ** ...00100 > ll (4)
 ** ...01000 > l (8)
-** ...10000 > L (16)
+** ...10000 > L (10)
 */
 
 int				check_length(const char *format,
@@ -50,19 +50,19 @@ int				check_length(const char *format,
 	if (format[*head] == 'h' && format[*head + 1] == 'h')
 	{
 		(*head)++;
-		return (params->length |= 1);
+		return (params->length |= 0x1);
 	}
 	if (format[*head] == 'h')
-		return (params->length |= 2);
+		return (params->length |= 0x2);
 	if (format[*head] == 'l' && format[*head + 1] == 'l')
 	{
 		(*head)++;
-		return (params->length |= 4);
+		return (params->length |= 0x4);
 	}
 	if (format[*head] == 'l')
-		return (params->length |= 8);
+		return (params->length |= 0x8);
 	if (format[*head] == 'L')
-		return (params->length |= 16);
+		return (params->length |= 0x10);
 	return (0);
 }
 

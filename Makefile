@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2018/12/20 15:15:21 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/22 15:44:54 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,10 @@ SRCS				:=	$(SRCSDIR)/ft_printf.c				\
 						$(SRCSDIR)/printer.c				\
 						$(SRCSDIR)/parser_checks.c			\
 						$(SRCSDIR)/parser.c					\
-						$(SRCSDIR)/dispatcher.c
+						$(SRCSDIR)/dispatcher.c				\
+						$(SRCSDIR)/baker_integers.c			\
+						$(SRCSDIR)/baker_char.c				\
+						$(SRCSDIR)/baker_double.c
 
 OBJSDIR   			=	objs
 

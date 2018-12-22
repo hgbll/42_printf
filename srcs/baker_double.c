@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   baker_double.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/17 15:20:10 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/22 17:51:17 by hbally           ###   ########.fr       */
+/*   Created: 2018/12/22 15:20:54 by hbally            #+#    #+#             */
+/*   Updated: 2018/12/22 18:20:14 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_test.h"
+#include "ft_printf.h"
 
-int		main(void)
-{
-	printf("\n|0       |10       |20\n");
-//	test_string();
-//	test_int();
-	test_real();
-//	test_misc();
-	return (0);
-}
+int				baker_double(double n, t_index *params);
+int				baker_longdouble(long double n, t_index *params);

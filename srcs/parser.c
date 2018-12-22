@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:15:51 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/22 10:58:12 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/22 17:05:44 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ size_t				parser(const char *format,
 	if (check_percent_char(format, head))
 		return (1);
 	ft_bzero(&params, sizeof(t_index));
-	params.precision = 6;
+	params.precision = -6;
 	printed = -1;
 	while (format[*head])
 	{
@@ -45,10 +45,10 @@ size_t				parser(const char *format,
 						printed = dispatcher(format[*head], args, &params);
 		if (printed != -1)
 		{
-			printf("flags > %d\n", params.flags);
-			printf("width > %ld\n", params.width);
-			printf("precision > %ld\n", params.precision);
-			printf("length > %d\n", params.length);
+//			printf("flags > %d\n", params.flags);
+//			printf("width > %ld\n", params.width);
+//			printf("precision > %ld\n", params.precision);
+//			printf("length > %d\n", params.length);
 			return ((size_t)printed);
 		}
 		(*head)++;

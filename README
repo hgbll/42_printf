@@ -13,52 +13,37 @@
 > what happens when no arg provided but expected an arg
 > return the number of characters printed (not including \0 in s)
 > if error, return negative value
-> error with ft_printf("lorem  %") > wrong ret et al
 
 %[flags][width][.precision][length]type
 
-% ---- +-0# not number ----- char or 0 number dot ------ dot number char ---- char char ---- char
-
-non int
-__________________________________________________
-
-c : char
+c : char (converted to int on input)
 s : string
 p : pointer
-
-
-int
-___________________________________________________
-
 d : decimal
 i : (same)
 o : octal
 u : uint
 x : hexa lower
 X : hexa upper 
-%% : print a literal % character
+f  : 
+	(floats are converted to double on input)
+	double in normal notation, fixed point (works w/ float)
+     if no precision, default is 6
+	 if decimal point, at least one digit
+	  if . or .0, rounded	
+	handle 0/-0
 
-length;
+length on dioux 
 hh : expect an int promoted from a char
 h  : expect an int promoted from a short
 l  : expect a long (no effect on floating point)
 ll : expect a long long
 
-
-floating
-___________________________________________________
-
-f  : double in normal notation, fixed point (works w/ float)
-     if no precision, default is 6
-	 if decimal point, at least one digit
-	  if . or .0, rounded	
-	handle 0/-0
+length on f
 l  : no effect ? 
 L  : expect a long double
 
-
-
-other flags : 
+flags : 
 _____________________________________________
 
 #  : alternate forms
@@ -71,8 +56,6 @@ sp : prepens a ' ' for positive
 
 (order + >> ' ' >> default)
 
-
-
 width field :
 ________________________________________________
 
@@ -83,7 +66,6 @@ dynamic value is bonus, format is  (%*d", 5, 10) [output '   10']
 if leading zero > prepend zeros
 if negative value > left align
 
-
 ________________________________________________
 precision
 
@@ -91,9 +73,3 @@ a period followed by an optional digit string. no digit string = precision is ze
 > minimum number of digits for diouxX
 > number of digits after decimal point for (aAeEfF)
 > maximum number of char to print from a string
-
-______________________________________________
-
-tips
-use a pipe that processes all the things
-apply from right to left

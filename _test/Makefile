@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2018/12/20 16:00:40 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/22 12:25:32 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,12 +40,12 @@ all					:	libs $(BINDIR)/$(NAME)
 
 .PHONY				:	this
 this				:	$(OBJS)
-						$(CC) -o $(NAME) $(CFLAGS) $(OBJS)
+						$(CC) -o $(NAME) $(CFLAGS) $(OBJS) -L../libft/ -lft
 						./test
 
 .PHONY				:	libs
 libs				:
-						make -C ../
+						make -C ../ 
 
 .PHONY				:	run
 run					:	all
