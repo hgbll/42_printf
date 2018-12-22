@@ -13,6 +13,7 @@
 > what happens when no arg provided but expected an arg
 > return the number of characters printed (not including \0 in s)
 > if error, return negative value
+> error with ft_printf("lorem  %") > wrong ret et al
 
 %[flags][width][.precision][length]type
 

@@ -36,6 +36,7 @@ size_t				parser(const char *format,
 	if (check_percent_char(format, head))
 		return (1);
 	ft_bzero(&params, sizeof(t_index));
+	params.precision = 6;
 	printed = -1;
 	while (format[*head])
 	{

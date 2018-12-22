@@ -22,15 +22,17 @@ void		test_int(void)
 	b = INT_MIN;
 
 	printf("___INT___\n");
-	
-	long long alonglong;
-	alonglong = LONG_MAX;
-	printf ("test : %hhlld", alonglong);
-	ret = printf("%d\n", a);
-	printf("%d\n", ret);
 
-	//ret = ft_printf("%d", a);
-	//printf("%d\n", ret);
+	ret = ft_printf("lorem %");
+	printf("\n%d\n", ret);
+//	long long alonglong;
+//	alonglong = LONG_MAX;
+//	printf ("test : %hhlld", alonglong);
+//	ret = printf("%d\n", a);
+//	printf("%d\n", ret);
 
-	printf("%.6#50f", (double)a);
+//	ret = ft_printf("%d", a);
+//	printf("%d\n", ret);
+
+//	printf("%.6#50f", (double)a);
 }

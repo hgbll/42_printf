@@ -12,36 +12,35 @@
 
 /*
 ** Flag is represented as a bit code
-** ...00001 > #
-** ...00010 > 0
-** ...00100 > -
-** ...01000 > sp
-** ...10000 > +
+** ...00001 > # (1)
+** ...00010 > 0 (2)
+** ...00100 > - (4)
+** ...01000 > sp (8)
+** ...10000 > + (16)
 */
 
 int				check_flag(const char c, t_index *params)
 {
 	if (c == '#')
-		return (params->flags += 1);
-	else if (c == '0')
-		return (params->flags += 2);
-	else if (c == '-')
-		return (params->flags += 4);
-	else if (c == ' ')
-		return (params->flags += 8);
-	else if (c == '+')
-		return (params->flags += 16);
-	else
-		return (0);
+		return (params->flags |= 1);
+	if (c == '0')
+		return (params->flags |= 2);
+	if (c == '-')
+		return (params->flags |= 4);
+	if (c == ' ')
+		return (params->flags |= 8);
+	if (c == '+')
+		return (params->flags |= 16);
+	return (0);
 }
 
 /*
 ** Flag is represented as a bit code
-** ...00001 > hh
-** ...00010 > h
-** ...01000 > ll
-** ...00100 > l
-** ...10000 > L
+** ...00001 > hh (1)
+** ...00010 > h (2)
+** ...00100 > ll (4)
+** ...01000 > l (8)
+** ...10000 > L (16)
 */
 
 int				check_length(const char *format,
@@ -51,21 +50,20 @@ int				check_length(const char *format,
 	if (format[*head] == 'h' && format[*head + 1] == 'h')
 	{
 		(*head)++;
-		return (params->length += 1);
+		return (params->length |= 1);
 	}
-	else if (format[*head] == 'h')
-		return (params->length += 2);
-	else if (format[*head] == 'l' && format[*head + 1] == 'l')
+	if (format[*head] == 'h')
+		return (params->length |= 2);
+	if (format[*head] == 'l' && format[*head + 1] == 'l')
 	{
 		(*head)++;
-		return (params->length += 4);
+		return (params->length |= 4);
 	}
-	else if (format[*head] == 'l')
-		return (params->length += 8);
-	else if (format[*head] == 'L')
-		return (params->length += 16);
-	else
-		return (0);
+	if (format[*head] == 'l')
+		return (params->length |= 8);
+	if (format[*head] == 'L')
+		return (params->length |= 16);
+	return (0);
 }
 
 int				check_width(const char *format,
@@ -88,9 +86,14 @@ int				check_precision(const char *format,
 {
 	if (format[*head] == '.')
 	{
-		params->precision = ft_atol(&(format[*head + 1]));
-		while (ft_isdigit(format[*head + 1]))
-			(*head)++;
+		if (ft_isdigit(format[*head + 1]))
+		{
+			params->precision = ft_atol(&(format[*head + 1]));
+			while (ft_isdigit(format[*head + 1]))
+				(*head)++;
+		}
+		else
+			params->precision = 0;
 		return (1);
 	}
 	return (0);
