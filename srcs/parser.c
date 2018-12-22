@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:15:51 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/20 18:14:02 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/22 10:58:12 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static int			check_percent_char(const char *format, size_t *head)
 {
-	if (format[*head] == '%')
+	if (format[++(*head)] == '%')
 	{
 		ft_putchar(format[*head]);
 		return (1);
@@ -31,8 +31,6 @@ size_t				parser(const char *format,
 	t_index			params;
 	int				printed;
 
-	if (!format[++(*head)])
-		return (0);
 	if (check_percent_char(format, head))
 		return (1);
 	ft_bzero(&params, sizeof(t_index));

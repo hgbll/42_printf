@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 16:08:42 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/20 17:45:27 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/22 11:02:26 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		test_int(void)
 
 	printf("___INT___\n");
 
-	ret = ft_printf("lorem %");
+	ret = ft_printf("lorem %% ipsum %-ld");
 	printf("\n%d\n", ret);
 //	long long alonglong;
 //	alonglong = LONG_MAX;
