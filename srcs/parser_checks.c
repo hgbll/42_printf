@@ -72,7 +72,7 @@ int				check_width(const char *format,
 {
 	if (ft_isdigit(format[*head]))
 	{
-		params->width = ft_atol(&(format[*head]));
+		params->width = ft_atoll(&(format[*head]));
 		while (ft_isdigit(format[*head + 1]))
 			(*head)++;
 		return (1);
@@ -88,7 +88,7 @@ int				check_precision(const char *format,
 	{
 		if (ft_isdigit(format[*head + 1]))
 		{
-			params->precision = ft_atol(&(format[*head + 1]));
+			params->precision = ft_atoll(&(format[*head + 1]));
 			while (ft_isdigit(format[*head + 1]))
 				(*head)++;
 		}

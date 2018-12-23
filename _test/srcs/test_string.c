@@ -16,6 +16,7 @@ void		test_string(void)
 {
 	char	c = 'C';
 	char	*s = "loremipsumloremipsumloremipsumloremipsumloremipsumloremipsum";
+	char 	*short_string = "lorem\n";
 	int		ret;
 
 	printf("___STRINGS___\n");
@@ -32,6 +33,7 @@ void		test_string(void)
 	printf("%.0s\n", s);
 	printf("%.6s\n", s);
 	printf("%.99999999s\n", s);
+	printf("%s\n", short_string);
 	
 	
 //	ret = ft_printf("char %c\n", c);

@@ -22,6 +22,11 @@ void		test_int(void)
 
 	printf("___INT___\n");
 
+	printf("%#.10x\n", 123);
+	printf("%10.10d\n", -123);
+	printf("%11.10d\n", -123);
+	printf("%12.10d\n", -123);
+
 	printf("%0 20x\n", +500);
 
 	printf("%u\n");

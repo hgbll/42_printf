@@ -16,6 +16,8 @@
 # include <stdarg.h>
 # include <string.h>
 
+# define BUFFER_SIZE 1023ll
+
 /*
  ** DEBUG FUNCTIONS TODO REMOVE
  */
@@ -30,10 +32,11 @@ typedef struct		s_index
 {
 	char			type;
 	int				length;
-	long			precision;
-	long			width;
+	long long		precision;
+	long long		width;
 	int				flags;
 	int				negative;
+	size_t			size;
 }					t_index;
 
 int					printf(const char *format, ...);
