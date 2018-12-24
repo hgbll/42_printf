@@ -19,6 +19,7 @@ SRCSDIR   			=	srcs
 SRCS			   :=	$(SRCSDIR)/main.c					\
 						$(SRCSDIR)/test_string.c			\
 						$(SRCSDIR)/test_real.c				\
+						$(SRCSDIR)/print_memory.c			\
 						$(SRCSDIR)/test_int.c
 
 OBJSDIR   			=	objs

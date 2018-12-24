@@ -21,3 +21,6 @@ int				baker_char(char c, t_index *params)
 }
 
 int				baker_string(char *s, t_index *params);
+	if (params.precision != -6)
+		params.size = params.precision;
+

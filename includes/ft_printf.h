@@ -43,6 +43,9 @@ int					printf(const char *format, ...);
 size_t				printer(const char *format, size_t *head, va_list *args);
 size_t				parser(const char *format, size_t *head, va_list *args);
 int					dispatcher(char c, va_list *args, t_index *params);
+int					formatter(char *s, t_index *params);
+
+int					filler(char c, long long len);
 
 int					baker_char(char c, t_index *params);
 int					baker_string(char *s, t_index *params);

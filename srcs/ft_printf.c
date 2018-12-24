@@ -25,11 +25,11 @@
 **					then call dispatcher if a type identifier was found
 ** dispatcher	| calls the correct baker using parser output
 ** baker  		| conversion form raw input to string
-** 					then applies precision
+** formatter	|	applies precision
 **					then applies width
 **					then applies flags
 **					then passes result to baked_printer	
-** baked_prtr	| prints the resulting output from baking pipe
+** arg_prtr		| prints the resulting output from baking pipe
 **					then returns chars printed back to ft_printf
 */
 

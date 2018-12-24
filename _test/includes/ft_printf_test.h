@@ -18,6 +18,7 @@
 # include "libft.h"
 
 int		ft_printf(const char *format, ...);
+void	debug_printmemory(void);
 void	test_char();
 void	test_string();
 void 	test_int();

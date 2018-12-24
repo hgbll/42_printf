@@ -1,5 +1,6 @@
 - Current
-
+> pipe doesnt work in current iteration
+	>>> if a '-' is in the flags
 - ToDo
 
 - AtExit

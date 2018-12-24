@@ -1,3 +1,4 @@
+#include <string.h>
 #include <stdio.h>
 #include <limits.h>
 #include <float.h>
@@ -36,7 +37,7 @@ static double	get_right(double n) //assumes positive and <= LONG_MAX
 	return (n);
 }
 
-int main()
+void	debug_printmemory(void)
 {
 	long along;
 	unsigned long aulong;
@@ -46,25 +47,9 @@ int main()
 	double bdouble;
 	long double alongdouble;
 	char *str;
+	size_t asizet;
 
-	adouble = 433432903231321321.34442953429203498;
-	/*
-	3.brouettes
-		adouble -= 3 * 10^
-
-
-
-*/
-	double trunc;
-
-
-	trunc = adouble - get_right(adouble);
-
-	while (adouble > 1)
-	{
-		printf("%30.10f\n", adouble);
-		adouble /= 10.0;
-	}	
-
-	return (0);
+	asizet = -1;
+	printf(">>>>>>>>>>>>>>>> %zu\n", asizet);
+	
 }
