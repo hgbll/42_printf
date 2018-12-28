@@ -35,7 +35,9 @@ int					printer_arg(const char *s, const char c, t_index *params)
 {
 	int				printed;
 
-	if (!c)return(0);
+	if (!c) //DEBUG
+		return(0); //DEBUG
+
 	printed = 0;
 //	if (!(flags & 0x4))
 //		printed += width();

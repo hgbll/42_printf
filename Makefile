@@ -20,7 +20,7 @@ SRCS				:=	$(SRCSDIR)/ft_printf.c				\
 						$(SRCSDIR)/parser.c					\
 						$(SRCSDIR)/dispatcher.c				\
 						$(SRCSDIR)/baker_char.c				\
-#						$(SRCSDIR)/baker_integers.c			\
+						$(SRCSDIR)/baker_integers.c			\
 #						$(SRCSDIR)/baker_double.c
 
 OBJSDIR   			=	objs

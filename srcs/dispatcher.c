@@ -17,9 +17,8 @@ int				dispatcher(char c, va_list *args, t_index *params)
 		return (baker_char(va_arg(*args, int), params));
 	if (c == 's')
 		return (baker_string(va_arg(*args, char*), params));
-	/*
-	if (c == 'p')
-		return (baker_pointer(va_arg(*args, void*), params));
+//	if (c == 'p')
+//		return (baker_pointer(va_arg(*args, void*), params));
 	if (c == 'd' || c == 'i' || c == 'o' || c == 'x' || c == 'X' || c == 'u')
 	{
 		if (params->length & 0x4)
@@ -28,13 +27,12 @@ int				dispatcher(char c, va_list *args, t_index *params)
 			return (baker_long(va_arg(*args, long), params));
 		return (baker_int(va_arg(*args, int), params));
 	}
-	if (c == 'f')
-	{
-		if (params->length & 0x10)
-			return (baker_longdouble(va_arg(*args, long double), params));
-		return (baker_double(va_arg(*args, double), params));
-	}
-	*/
+//	if (c == 'f')
+//	{
+//		if (params->length & 0x10)
+//			return (baker_longdouble(va_arg(*args, long double), params));
+//		return (baker_double(va_arg(*args, double), params));
+//	}
 	params->type = 0;
 	return (-1);
 }

@@ -38,15 +38,16 @@ static int		check_downcast(int n, t_index *params)
 		else if (params->flags & 0x2)
 			return ((unsigned short)n);
 	}
+	return (n);
 }
 
-int				baker_int(int n, t_index *params);
+int				baker_int(int n, t_index *params)
 {
 	char			*result;
 	int				printed;
 
 	n = check_downcast(n, params);
-	if (params->type = 'd' || params-> type == 'i' || n == 0)
+	if (params->type == 'd' || params-> type == 'i' || n == 0)
 	{
 		if (n >= 0)
 			result = ft_uitoa((unsigned int)n);
@@ -56,8 +57,8 @@ int				baker_int(int n, t_index *params);
 			result = ft_uitoa((unsigned int)-n);
 		}
 	}
-	else if (params->type = 'x' || params->type = 'X')
-		result = ft_uitoxa((unsigned int)n);
+	else if (params->type == 'x' || params->type == 'X')
+		result = ft_uitoxa((unsigned int)n, (int)(params->type == 'X'));
 	else if (params->type = 'o')
 		result = ft_uitooa((unsigned int)n);
 	if (!result)

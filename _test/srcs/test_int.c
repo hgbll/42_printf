@@ -22,6 +22,8 @@ void		test_int(void)
 
 	printf("___INT___\n");
 
+	ft_printf("%d", 0);
+	exit(0);
 	printf("%#o\n", 32448);
 	printf("%10.10d\n", -123);
 	printf("%11.10d\n", -123);

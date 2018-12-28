@@ -16,8 +16,8 @@ int		main(void)
 {
 	debug_printmemory();
 	printf("\n|0       |10       |20\n");
-	test_string();
+//	test_string();
 	test_int();
-	test_real();
+//	test_real();
 	return (0);
 }
