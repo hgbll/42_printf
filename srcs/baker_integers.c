@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "ft_printf.h"
 #include "libft.h"
 
@@ -24,19 +25,19 @@
 
 static int		check_downcast(int n, t_index *params)
 {
-	if (params->type != 'u')
+	if (params->type == 'd' || params->type == 'i')
 	{
-		if (params->flags & 0x1)
-			return ((char)n);
-		else if (params->flags & 0x2)
-			return ((short)n);
+		if (params->length & 0x1)
+			n = (char)n;
+		else if (params->length & 0x2)
+			n = (short)n;
 	}
 	else
 	{
-		if (params->flags & 0x1)
-			return ((unsigned char)n);
-		else if (params->flags & 0x2)
-			return ((unsigned short)n);
+		if (params->length & 0x1)
+			n = (unsigned char)n;
+		else if (params->length & 0x2)
+			n = (unsigned short)n;
 	}
 	return (n);
 }
@@ -49,26 +50,66 @@ int				baker_int(int n, t_index *params)
 	n = check_downcast(n, params);
 	if (params->type == 'd' || params-> type == 'i' || n == 0)
 	{
-		if (n >= 0)
-			result = ft_uitoa((unsigned int)n);
-		else
-		{
+		if (n < 0)
 			params->negative = 1;
-			result = ft_uitoa((unsigned int)-n);
-		}
+		result = ft_uitoa((unsigned int)(n >= 0 ? n : -n));
 	}
 	else if (params->type == 'x' || params->type == 'X')
 		result = ft_uitoxa((unsigned int)n, (int)(params->type == 'X'));
-	else if (params->type = 'o')
+	else
 		result = ft_uitooa((unsigned int)n);
 	if (!result)
 		return (0);
-	params>size = ft_strlen(result);
+	params->size = ft_strlen(result);
 	printed = printer_arg(result, params->type, params);
 	free(result);
 	return (printed);
 }
 
-int				baker_long(long n, t_index *params);
-int				baker_longlong(long long n, t_index *params);
+int				baker_long(long n, t_index *params)
+{
+	char			*result;
+	int				printed;
+
+	if (params->type == 'd' || params-> type == 'i' || n == 0)
+	{
+		if (n < 0)
+			params->negative = 1;
+		result = ft_ultoa((unsigned long)(n >= 0 ? n : -n));
+	}
+	else if (params->type == 'x' || params->type == 'X')
+		result = ft_ultoxa((unsigned long)n, (int)(params->type == 'X'));
+	else
+		result = ft_ultooa((unsigned long)n);
+	if (!result)
+		return (0);
+	params->size = ft_strlen(result);
+	printed = printer_arg(result, params->type, params);
+	free(result);
+	return (printed);
+}
+
+int				baker_longlong(long long n, t_index *params)
+{
+	char			*result;
+	int				printed;
+
+	if (params->type == 'd' || params-> type == 'i' || n == 0)
+	{
+		if (n < 0)
+			params->negative = 1;
+		result = ft_ulltoa((unsigned long long)(n >= 0 ? n : -n));
+	}
+	else if (params->type == 'x' || params->type == 'X')
+		result = ft_ulltoxa((unsigned long long)n, (int)(params->type == 'X'));
+	else
+		result = ft_ulltooa((unsigned long long)n);
+	if (!result)
+		return (0);
+	params->size = ft_strlen(result);
+	printed = printer_arg(result, params->type, params);
+	free(result);
+	return (printed);
+}
+
 int				baker_pointer(void* n, t_index *params);

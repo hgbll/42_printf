@@ -51,27 +51,12 @@ void	debug_printmemory(void)
 	unsigned char uc;
 	size_t asizet;
 	
-	c = -128;
-//	uc = ~c + 1;
-	uc = c * -1;
-	print_memory(&c, 1);
-	print_memory(&uc, 1);
-
-	aint = INT_MIN - 1;
-	auint = aint;
+	aint = INT_MAX;
 	print_memory(&aint, 4);
+	aint = (unsigned char)aint;
+	printf("%d\n", aint);
+	print_memory(&aint, 4);
+	auint = (unsigned int)aint;
 	print_memory(&auint, 4);
-	printf("%d\n", aint);
-	printf("%u\n", auint);
-	printf(".........\n");
-	printf("%d\n", c);
-	printf("%u\n", uc);
-	aint = 1200;
-	print_memory(&aint, 4);
-	aint = (char)aint;
-	print_memory(&aint, 4);
-	printf("%d\n", aint);
-	uc = 130;
-	printf("%x", -50);
 
 }

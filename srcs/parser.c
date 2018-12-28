@@ -48,7 +48,7 @@ size_t				parser(const char *format,
 //			printf("flags > %d\n", params.flags);
 //			printf("width > %ld\n", params.width);
 //			printf("precision > %ld\n", params.precision);
-//			printf("length > %d\n", params.length);
+//			printf("\nlength > %#X\n", params.length);
 			return ((size_t)printed);
 		}
 		(*head)++;

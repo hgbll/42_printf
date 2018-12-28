@@ -22,7 +22,14 @@ void		test_int(void)
 
 	printf("___INT___\n");
 
-	ft_printf("%d", 0);
+	ft_printf("%d\n", 0);
+	ft_printf("%i\n", -54325);
+	ft_printf("%hho\n", UINT_MAX);
+	printf("%hho\n", UINT_MAX);
+	ft_printf("%hhd\n", UINT_MAX);
+	printf("%hhd\n", UINT_MAX);
+	ft_printf("%llX\n", ULONG_MAX);
+	printf("%llX\n", ULONG_MAX);
 	exit(0);
 	printf("%#o\n", 32448);
 	printf("%10.10d\n", -123);
