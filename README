@@ -1,12 +1,12 @@
 - Current
-> pipe doesnt work in current iteration
-	>>> if a '-' is in the flags
+
 - ToDo
+> norminette libft
+	>> add headers
 
 - AtExit
 > check on makefile if printf sources dont change but libft changes does it recompile
 > malloc in ft_atoi/atol etc
-> norminette libft
 
 - Misc
 > fct autorisees : write, malloc, free, exit, stdarg

@@ -47,9 +47,31 @@ void	debug_printmemory(void)
 	double bdouble;
 	long double alongdouble;
 	char *str;
+	char c;
+	unsigned char uc;
 	size_t asizet;
-
-	asizet = -1;
-	printf(">>>>>>>>>>>>>>>> %zu\n", asizet);
 	
+	c = -128;
+//	uc = ~c + 1;
+	uc = c * -1;
+	print_memory(&c, 1);
+	print_memory(&uc, 1);
+
+	aint = INT_MIN - 1;
+	auint = aint;
+	print_memory(&aint, 4);
+	print_memory(&auint, 4);
+	printf("%d\n", aint);
+	printf("%u\n", auint);
+	printf(".........\n");
+	printf("%d\n", c);
+	printf("%u\n", uc);
+	aint = 1200;
+	print_memory(&aint, 4);
+	aint = (char)aint;
+	print_memory(&aint, 4);
+	printf("%d\n", aint);
+	uc = 130;
+	printf("%x", -50);
+
 }

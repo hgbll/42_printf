@@ -6,9 +6,7 @@
 //	if (char is num and not zero)
 //		add atoi of next to width, move to next non-num
 //	if (char is .)
-//		add atoi of next to precision, move to next non-num
-//	if (char is length)
-//		add to length
+//		add atoi of next to precision, move to next non-num //	if (char is length) //		add to length
 
 /*
 ** Flag is represented as a bit code
