@@ -15,9 +15,9 @@ int				dispatcher(char c, va_list *args, t_index *params)
 	params->type = c;
 	if (c == 'c')
 		return (baker_char(va_arg(*args, int), params));
-	/*
 	if (c == 's')
 		return (baker_string(va_arg(*args, char*), params));
+	/*
 	if (c == 'p')
 		return (baker_pointer(va_arg(*args, void*), params));
 	if (c == 'd' || c == 'i' || c == 'o' || c == 'x' || c == 'X' || c == 'u')

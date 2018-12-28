@@ -40,12 +40,8 @@ typedef struct		s_index
 }					t_index;
 
 int					printf(const char *format, ...);
-size_t				printer(const char *format, size_t *head, va_list *args);
 size_t				parser(const char *format, size_t *head, va_list *args);
 int					dispatcher(char c, va_list *args, t_index *params);
-int					formatter(char *s, t_index *params);
-
-int					filler(char c, long long len);
 
 int					baker_char(char c, t_index *params);
 int					baker_string(char *s, t_index *params);
@@ -55,6 +51,10 @@ int					baker_long(long n, t_index *params);
 int					baker_longlong(long long n, t_index *params);
 int					baker_double(double n, t_index *params);
 int					baker_longdouble(long double n, t_index *params);
+
+int					printer_arg(const char *s, const char c, t_index *params);
+size_t				printer_fmt(const char *format, size_t *head, va_list *args);
+int					printer_filler(char c, long long len);
 
 int					check_flag(const char c, t_index *params);
 int					check_length(const char *format,

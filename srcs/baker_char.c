@@ -10,17 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+#include <stdlib.h>
 #include "ft_printf.h"
 #include "libft.h"
 
 int				baker_char(char c, t_index *params)
 {
-	params = 0;
-	c = 0;
-	return (1);
+	if (c)
+	{
+		params->size = 1;
+		return (printer_arg(&c, params->type, params));
+	}
+	return (0);
 }
 
-int				baker_string(char *s, t_index *params);
-	if (params.precision != -6)
-		params.size = params.precision;
-
+int				baker_string(char *s, t_index *params)
+{
+	if (s)
+	{
+		if (params->precision != -6)
+			params->size = params->precision;
+		else
+			params->size = ft_strlen(s);
+		return (printer_arg(s, params->type, params));
+	}
+	return (0);
+}

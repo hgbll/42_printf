@@ -16,20 +16,39 @@ void		test_string(void)
 {
 	char	c = 'C';
 	char	*s = "loremipsumloremipsumloremipsumloremipsumloremipsumloremipsum";
+	char	*s1 = "James";
+	char	*s2 = "Bond";
 	char 	*short_string = "lorem\n";
 	int		ret;
 
 	printf("___STRINGS___\n");
 
+	ret = printf("%s\n", s);
+	printf("%d\n", ret);
+	ret = ft_printf("%s\n", s);
+	printf("%d\n", ret);
 
-	printf("char %c\n", c);
+	ft_printf("My name is %s. %s %s.\n", s2, s1, s2);
+	ft_printf("%.s%.s", s2, s1);
+	printf("char \\0 %cshould not appear\n", '\0');
+	ft_printf("char \\0 %cshould not appear\n", '\0');
+	ft_printf("char %c\n", c);
+	printf("____________\n", c);
+
 	printf("char %10c\n", c);
+
 	printf("char %10.10c\n", c);
+
 	printf("char %-10.10c\n", c);
+
 	printf("char %+10c\n", c);
+
 	printf("char %+10c\n", c);
+
 	printf("%s\n", s);
-	printf("%.s\n", s);
+	ft_printf("%s\n", s);
+	printf("____________\n", c);
+
 	printf("%.0s\n", s);
 	printf("%.6s\n", s);
 	printf("%.99999999s\n", s);
@@ -45,10 +64,6 @@ void		test_string(void)
 //	ret = ft_printf("0123456789");
 //	printf("\n%d\n---\n", ret);
 
-//	ret = printf("%s\n", s);
-//	printf("%d\n", ret);
-//	ret = ft_printf("%s\n", s);
-//	printf("%d\n", ret);
 
 //	ret = printf("%s%s%s%s%s%s      %s annnnnnnd %s\n", s, s, s, s, s, s, s, s);
 //	printf("%d\n", ret);

@@ -47,10 +47,10 @@ int				ft_printf(const char *format, ...)
 		while (format[head])
 		{
 			if (format[head] == '%')
-				printed += printer(format, &head, &args);
+				printed += printer_fmt(format, &head, &args);
 			head++;
 		}
-		printed += printer(format, &head, &args);
+		printed += printer_fmt(format, &head, &args);
 		va_end(args);
 	}
 	return (printed);

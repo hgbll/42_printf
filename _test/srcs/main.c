@@ -19,6 +19,5 @@ int		main(void)
 	test_string();
 	test_int();
 	test_real();
-//	test_misc();
 	return (0);
 }
