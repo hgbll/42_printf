@@ -1,5 +1,4 @@
 - Current
-> bug on %llx with ulong max
 
 - ToDo
 > norminette libft
@@ -19,15 +18,7 @@
 
 %[flags][width][.precision][length]type
 
-c : char (converted to int on input)
-s : string
 p : pointer
-d : decimal
-i : (same)
-o : octal
-u : uint
-x : hexa lower
-X : hexa upper 
 f  : 
 	(floats are converted to double on input)
 	double in normal notation, fixed point (works w/ float)
@@ -35,12 +26,6 @@ f  :
 	 if decimal point, at least one digit
 	  if . or .0, rounded	
 	handle 0/-0
-
-length on dioux 
-hh : expect an int promoted from a char
-h  : expect an int promoted from a short
-l  : expect a long (no effect on floating point)
-ll : expect a long long
 
 length on f
 l  : no effect ? 
