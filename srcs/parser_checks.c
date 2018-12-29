@@ -1,20 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser_checks.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/29 15:31:06 by hbally            #+#    #+#             */
+/*   Updated: 2018/12/29 15:31:51 by hbally           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include "libft.h"
 
-//if (char is - + sp # 0)
-//	add code of char to flags
-//	if (char is num and not zero)
-//		add atoi of next to width, move to next non-num
-//	if (char is .)
-//		add atoi of next to precision, move to next non-num //	if (char is length) //		add to length
-
 /*
 ** Flag is represented as a bit code
-** ...00001 > # (1)
-** ...00010 > 0 (2)
-** ...00100 > - (4)
-** ...01000 > sp (8)
-** ...10000 > + (10)
+** ...00001 > #
+** ...00010 > 0
+** ...00100 > -
+** ...01000 > sp
+** ...10000 > +
 */
 
 int				check_flag(const char c, t_index *params)
@@ -34,11 +39,11 @@ int				check_flag(const char c, t_index *params)
 
 /*
 ** Length is represented as a bit code
-** ...00001 > hh (1)
-** ...00010 > h (2)
-** ...00100 > ll (4)
-** ...01000 > l (8)
-** ...10000 > L (10)
+** ...00001 > hh
+** ...00010 > h
+** ...00100 > ll
+** ...01000 > l
+** ...10000 > L
 */
 
 int				check_length(const char *format,

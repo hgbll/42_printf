@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 15:20:10 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 15:23:06 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 15:51:23 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		main(void)
 {
 	debug_printmemory();
 	printf("\n|0       |10       |20\n");
-//	test_string();
+	test_string();
 	test_int();
 //	test_real();
 	return (0);

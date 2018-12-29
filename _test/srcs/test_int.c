@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 16:08:42 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 15:26:01 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 16:12:21 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,16 @@
 
 void		test_int(void)
 {
+	int a;
+
+	printf("___PTR___\n");
+	printf("%0100.50p\n", &a);
+	ft_printf("%p\n", &a);
+//	printf("%050llx\n", &a);
+	printf("%+050.100d\n", 42334820);
+	printf("%+050f\n", 430.8034);
+	printf("%d\n", sizeof(&a));
+
 	printf("___INT___\n");
 
 	ft_printf("%d\n", INT_MIN);
@@ -86,20 +96,4 @@ void		test_int(void)
 	printf("%0 20x\n", +500);
 
 	printf("%u\n");
-//	printf("%99999999999999999ld\n", along);
-	printf("%#ld\n", along);
-	printf("%.15d\n", a);
-
-	//ret = ft_printf("lorem %% ipsum %-ld");
-	//printf("\n%d\n", ret);
-//	long long alonglong;
-//	alonglong = LONG_MAX;
-//	printf ("test : %hhlld", alonglong);
-//	ret = printf("%d\n", a);
-//	printf("%d\n", ret);
-
-//	ret = ft_printf("%d", a);
-//	printf("%d\n", ret);
-
-//	printf("%.6#50f", (double)a);
 }

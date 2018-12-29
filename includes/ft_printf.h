@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 13:54:39 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/22 16:45:13 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 15:34:20 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int					dispatcher(char c, va_list *args, t_index *params);
 
 int					baker_char(char c, t_index *params);
 int					baker_string(char *s, t_index *params);
-int					baker_pointer(void* n, t_index *params);
+int					baker_pointer(void *p, t_index *params);
 int					baker_int(int n, t_index *params);
 int					baker_long(long n, t_index *params);
 int					baker_longlong(long long n, t_index *params);
@@ -53,7 +53,9 @@ int					baker_double(double n, t_index *params);
 int					baker_longdouble(long double n, t_index *params);
 
 int					printer_arg(const char *s, const char c, t_index *params);
-size_t				printer_fmt(const char *format, size_t *head, va_list *args);
+size_t				printer_fmt(const char *format,
+									size_t *head,
+									va_list *args);
 int					printer_filler(char c, long long len);
 
 int					check_flag(const char c, t_index *params);

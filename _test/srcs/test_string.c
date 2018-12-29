@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 15:58:36 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/22 16:55:59 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 15:51:46 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void		test_string(void)
 
 	printf("___STRINGS___\n");
 
+	printf("%03402s\n", s);
 	ret = printf("%s\n", s);
 	printf("%d\n", ret);
 	ret = ft_printf("%s\n", s);
