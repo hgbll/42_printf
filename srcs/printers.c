@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:13:36 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/22 10:59:31 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 15:05:46 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ int					printer_filler(const char c, long long len)
 	i = 0;
 	printed = 0;
 	if (!(buffer = ft_strnew(BUFFER_SIZE)))
-		return (0); while (i < len && i < BUFFER_SIZE)
+		return (0);
+	while (i < len && i < BUFFER_SIZE)
 		buffer[i++] = c;
 	while (len > 0)
 	{

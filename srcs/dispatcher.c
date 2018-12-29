@@ -21,10 +21,10 @@ int				dispatcher(char c, va_list *args, t_index *params)
 //		return (baker_pointer(va_arg(*args, void*), params));
 	if (c == 'd' || c == 'i' || c == 'o' || c == 'x' || c == 'X' || c == 'u')
 	{
-//		if (params->length & 0x4)
-//			return (baker_longlong(va_arg(*args, long long), params));
-//		if (params->length & 0x8)
-//			return (baker_long(va_arg(*args, long), params));
+		if (params->length & 0x4)
+			return (baker_longlong(va_arg(*args, long long), params));
+		if (params->length & 0x8)
+			return (baker_long(va_arg(*args, long), params));
 		return (baker_int(va_arg(*args, int), params));
 	}
 //	if (c == 'f')

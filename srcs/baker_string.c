@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   baker_char.c                                       :+:      :+:    :+:   */
+/*   baker_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 15:19:18 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 14:58:17 by hbally           ###   ########.fr       */
+/*   Created: 2018/12/29 14:57:20 by hbally            #+#    #+#             */
+/*   Updated: 2018/12/29 14:58:00 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-int				baker_char(char c, t_index *params)
+int				baker_string(char *s, t_index *params)
 {
-	if (c)
+	if (s)
 	{
-		params->size = 1;
-		return (printer_arg(&c, params->type, params));
+		if (params->precision != -6)
+			params->size = params->precision;
+		else
+			params->size = ft_strlen(s);
+		return (printer_arg(s, params->type, params));
 	}
 	return (0);
 }

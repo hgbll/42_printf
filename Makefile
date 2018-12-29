@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2018/12/22 15:44:54 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/29 15:02:07 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,17 @@ NAME				=	libftprintf.a
 SRCSDIR   			=	srcs
 
 SRCS				:=	$(SRCSDIR)/ft_printf.c				\
-						$(SRCSDIR)/printers.c				\
-						$(SRCSDIR)/parser_checks.c			\
 						$(SRCSDIR)/parser.c					\
+						$(SRCSDIR)/parser_checks.c			\
 						$(SRCSDIR)/dispatcher.c				\
+						$(SRCSDIR)/printers.c				\
 						$(SRCSDIR)/baker_char.c				\
-						$(SRCSDIR)/baker_integers.c			\
-#						$(SRCSDIR)/baker_double.c
+						$(SRCSDIR)/baker_string.c			\
+						$(SRCSDIR)/baker_int.c				\
+						$(SRCSDIR)/baker_long.c				\
+						$(SRCSDIR)/baker_longlong.c			\
+						$(SRCSDIR)/baker_double.c			\
+						$(SRCSDIR)/baker_pointer.c
 
 OBJSDIR   			=	objs
 

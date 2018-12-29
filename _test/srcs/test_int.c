@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 16:08:42 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/22 17:19:31 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 15:26:01 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,70 @@
 
 void		test_int(void)
 {
-	int a = INT_MAX;
-	int b = INT_MIN;
-	long along = LONG_MAX;
-	long blong = LONG_MIN;
-	int ret;
-
 	printf("___INT___\n");
 
-	ft_printf("%d\n", 0);
-	ft_printf("%i\n", -54325);
-	ft_printf("%hho\n", UINT_MAX);
-	printf("%hho\n", UINT_MAX);
-	ft_printf("%hhd\n", UINT_MAX);
-	printf("%hhd\n", UINT_MAX);
-	ft_printf("%llX\n", ULONG_MAX);
-	printf("%llX\n", ULONG_MAX);
+	ft_printf("%d\n", INT_MIN);
+	printf("%d\n", INT_MIN);
+	printf("___\n");
+
+	ft_printf("%d\n", INT_MAX);
+	printf("%d\n", INT_MAX);
+	printf("___\n");
+
+	ft_printf("%ld\n", LONG_MIN);
+	printf("%ld\n", LONG_MIN);
+	printf("___\n");
+
+	ft_printf("%ld\n", LONG_MAX);
+	printf("%ld\n", LONG_MAX);
+	printf("___\n");
+
+	ft_printf("%lld\n", LLONG_MAX);
+	printf("%lld\n", LLONG_MAX);
+	printf("___\n");
+
+	ft_printf("%lld\n", LLONG_MIN);
+	printf("%lld\n", LLONG_MIN);
+	printf("___\n");
+
+	ft_printf("%u\n", UINT_MAX);
+	printf("%u\n", UINT_MAX);
+	printf("___\n");
+
+	ft_printf("%lu\n", ULONG_MAX);
+	printf("%lu\n", ULONG_MAX);
+	printf("___\n");
+
+	ft_printf("%llu\n", ULLONG_MAX);
+	printf("%llu\n", ULLONG_MAX);
+	printf("___\n");
+
+	ft_printf("%X\n", UINT_MAX);
+	printf("%X\n", UINT_MAX);
+	printf("___\n");
+
+	ft_printf("%lX\n", ULONG_MAX);
+	printf("%lX\n", ULONG_MAX);
+	printf("___\n");
+
+	ft_printf("%llX\n", ULLONG_MAX);
+	printf("%llX\n", ULLONG_MAX);
+	printf("___\n");
+
+	ft_printf("%o\n", UINT_MAX);
+	printf("%o\n", UINT_MAX);
+	printf("___\n");
+
+	ft_printf("%lo\n", ULONG_MAX);
+	printf("%lo\n", ULONG_MAX);
+	printf("___\n");
+
+	ft_printf("%llo\n", ULLONG_MAX);
+	printf("%llo\n", ULLONG_MAX);
+	printf("___\n");
+
 	exit(0);
+
 	printf("%#o\n", 32448);
 	printf("%10.10d\n", -123);
 	printf("%11.10d\n", -123);

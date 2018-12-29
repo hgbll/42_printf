@@ -1,24 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   baker_char.c                                       :+:      :+:    :+:   */
+/*   baker_pointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 15:19:18 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 14:58:17 by hbally           ###   ########.fr       */
+/*   Created: 2018/12/29 14:56:23 by hbally            #+#    #+#             */
+/*   Updated: 2018/12/29 14:56:38 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "ft_printf.h"
 #include "libft.h"
 
-int				baker_char(char c, t_index *params)
-{
-	if (c)
-	{
-		params->size = 1;
-		return (printer_arg(&c, params->type, params));
-	}
-	return (0);
-}
+int				baker_pointer(void* n, t_index *params);

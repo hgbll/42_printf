@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:17:03 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/22 15:45:13 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/29 15:04:31 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ int				baker_int(int n, t_index *params)
 	int				printed;
 
 	n = check_downcast(n, params);
-	if (params->type == 'd' || params-> type == 'i' || n == 0)
+	if (params->type == 'u')
+		result = ft_uitoa((unsigned int)n);
+	else if (params->type == 'd' || params->type == 'i' || n == 0)
 	{
 		if (n < 0)
 			params->negative = 1;
@@ -65,51 +67,3 @@ int				baker_int(int n, t_index *params)
 	free(result);
 	return (printed);
 }
-
-int				baker_long(long n, t_index *params)
-{
-	char			*result;
-	int				printed;
-
-	if (params->type == 'd' || params-> type == 'i' || n == 0)
-	{
-		if (n < 0)
-			params->negative = 1;
-		result = ft_ultoa((unsigned long)(n >= 0 ? n : -n));
-	}
-	else if (params->type == 'x' || params->type == 'X')
-		result = ft_ultoxa((unsigned long)n, (int)(params->type == 'X'));
-	else
-		result = ft_ultooa((unsigned long)n);
-	if (!result)
-		return (0);
-	params->size = ft_strlen(result);
-	printed = printer_arg(result, params->type, params);
-	free(result);
-	return (printed);
-}
-
-int				baker_longlong(long long n, t_index *params)
-{
-	char			*result;
-	int				printed;
-
-	if (params->type == 'd' || params-> type == 'i' || n == 0)
-	{
-		if (n < 0)
-			params->negative = 1;
-		result = ft_ulltoa((unsigned long long)(n >= 0 ? n : -n));
-	}
-	else if (params->type == 'x' || params->type == 'X')
-		result = ft_ulltoxa((unsigned long long)n, (int)(params->type == 'X'));
-	else
-		result = ft_ulltooa((unsigned long long)n);
-	if (!result)
-		return (0);
-	params->size = ft_strlen(result);
-	printed = printer_arg(result, params->type, params);
-	free(result);
-	return (printed);
-}
-
-int				baker_pointer(void* n, t_index *params);
