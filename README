@@ -3,6 +3,8 @@
 - ToDo
 > norminette libft
 	>> add headers
+> print (null) if null instead of nothing
+> special values for double
 
 - AtExit
 > check on makefile if printf sources dont change but libft changes does it recompile

@@ -50,13 +50,4 @@ void	debug_printmemory(void)
 	char c;
 	unsigned char uc;
 	size_t asizet;
-	
-	aint = INT_MAX;
-	print_memory(&aint, 4);
-	aint = (unsigned char)aint;
-	printf("%d\n", aint);
-	print_memory(&aint, 4);
-	auint = (unsigned int)aint;
-	print_memory(&auint, 4);
-
 }
