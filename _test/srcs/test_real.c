@@ -16,12 +16,14 @@ void			test_real(void)
 	printf("[5] %.2f\n", adouble);
 	printf("[6] %5.2f\n", adouble);
 	printf("___________\n");
-	adouble = 2.5;
-	printf("[1] %.0f\n", adouble);
+	adouble = 3434892.594304293;
+	printf("[1] %-0150.50f\n", adouble);
 	printf("[2] %#.f\n", adouble);
 	printf("[3] %#.0f\n", adouble);
 	printf("[4] %.100f\n", adouble);
 	printf("[5] %.2f\n", adouble);
 	printf("[6] %5.2f\n", adouble);
 	printf("___________\n");
+	printf("%+40.5s\n", "hellooooo");
+	ft_printf("%+40.5s\n", "hellooooo");
 }

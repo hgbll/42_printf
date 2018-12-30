@@ -12,7 +12,9 @@
 
 int				dispatcher(char c, va_list *args, t_index *params)
 {
-	params->type = c;
+	params->type = (c != '%') ? c : '%';
+	if (c == '%')
+		return (baker_char('%', params));
 	if (c == 'c')
 		return (baker_char(va_arg(*args, int), params));
 	if (c == 's')
@@ -27,12 +29,12 @@ int				dispatcher(char c, va_list *args, t_index *params)
 			return (baker_long(va_arg(*args, long), params));
 		return (baker_int(va_arg(*args, int), params));
 	}
-//	if (c == 'f')
-//	{
-//		if (params->length & 0x10)
-//			return (baker_longdouble(va_arg(*args, long double), params));
-//		return (baker_double(va_arg(*args, double), params));
-//	}
+	if (c == 'f')
+	{
+		if (params->length & 0x10)
+			return (baker_longdouble(va_arg(*args, long double), params));
+		return (baker_double(va_arg(*args, double), params));
+	}
 	params->type = 0;
 	return (-1);
 }

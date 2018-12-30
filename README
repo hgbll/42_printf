@@ -5,6 +5,8 @@
 	>> add headers
 > print (null) if null instead of nothing
 > special values for double
+> handle long double
+> print width on null
 
 - AtExit
 > check on makefile if printf sources dont change but libft changes does it recompile
@@ -20,6 +22,8 @@
 
 %[flags][width][.precision][length]type
 
+c s
+diouxX
 p : pointer
 f  : 
 	(floats are converted to double on input)
@@ -40,6 +44,7 @@ _____________________________________________
 	> for f, the output contains a decimal point
 	> for o, x and X, prints 0, 0x, 0X in front
 0  : when width is specified, prepends 0 instead of sp
+	> is ignored when flag '-' is present
 -  : left align output
 +  : prepend + sign in front of positive numbers (0?)
 sp : prepens a ' ' for positive

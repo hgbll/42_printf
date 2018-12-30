@@ -86,14 +86,49 @@ void		test_int(void)
 	printf("%llo\n", ULLONG_MAX);
 	printf("___\n");
 
-	exit(0);
+	printf("%+d\n", 8439209);
+	ft_printf("%+d\n", 8439209);
 
-	printf("%#o\n", 32448);
-	printf("%10.10d\n", -123);
-	printf("%11.10d\n", -123);
-	printf("%30.10d\n", -123);
+	ft_printf("%+d\n", 8439209);
 
-	printf("%0 20x\n", +500);
+	printf("%+d\n", -8439209);
+	ft_printf("%+d\n", -8439209);
+	
+	printf("%d\n", -8439209);
+	ft_printf("%d\n", -8439209);
 
-	printf("%u\n");
+	printf("% d\n", 8439209);
+	ft_printf("% d\n", 8439209);
+
+	printf("%# x\n", -8439209);
+	ft_printf("%# x\n", -8439209);
+
+	printf("%.60p\n", &a);
+	ft_printf("%.60p\n", &a);
+
+	printf("%#X\n", -8439209);
+	ft_printf("%#X\n", -8439209);
+
+	printf("%+060.50d\n", 150);
+	ft_printf("%+060.50d\n", 150);
+
+	printf("%+060.50d\n", 150);
+	ft_printf("%+060.50d\n", 150);
+
+	printf("%+060d\n", 150);
+	ft_printf("%+060d\n", 150);
+
+	printf("%+060.50f\n", 150.0);
+	ft_printf("%+060.50f\n", 150.0);
+
+	printf("%060.50s\n", "hello");
+	ft_printf("%060.50s\n", "hello");
+
+	printf("%060.50c\n", 'h');
+	ft_printf("%060.50c\n", 'h');
+
+	printf("%d\n", printf("%#+095.34f\n", -150.438));
+	printf("%d\n", ft_printf("%#+095.34f\n", -150.438));
+
+	printf("%#.x", 0);
 }

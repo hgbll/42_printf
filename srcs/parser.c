@@ -14,16 +14,6 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-static int			check_percent_char(const char *format, size_t *head)
-{
-	if (format[++(*head)] == '%')
-	{
-		ft_putchar(format[*head]);
-		return (1);
-	}
-	return (0);
-}
-
 size_t				parser(const char *format,
 							size_t *head,
 							va_list *args)
@@ -31,10 +21,8 @@ size_t				parser(const char *format,
 	t_index			params;
 	int				printed;
 
-	if (check_percent_char(format, head))
-		return (1);
 	ft_bzero(&params, sizeof(t_index));
-	params.precision = -6;
+	params.precision = -1;
 	printed = -1;
 	while (format[*head])
 	{

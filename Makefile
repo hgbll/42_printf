@@ -25,7 +25,10 @@ SRCS				:=	$(SRCSDIR)/ft_printf.c				\
 						$(SRCSDIR)/baker_long.c				\
 						$(SRCSDIR)/baker_longlong.c			\
 						$(SRCSDIR)/baker_double.c			\
-						$(SRCSDIR)/baker_pointer.c
+						$(SRCSDIR)/baker_pointer.c			\
+						$(SRCSDIR)/prefix.c					\
+						$(SRCSDIR)/width.c					\
+						$(SRCSDIR)/precision.c
 
 OBJSDIR   			=	objs
 

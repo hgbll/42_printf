@@ -17,11 +17,12 @@ int				baker_string(char *s, t_index *params)
 {
 	if (s)
 	{
-		if (params->precision != -6)
+		params->size = ft_strlen(s);
+		if (params->precision != -1 &&
+				params->precision < (long long)params->size)
 			params->size = params->precision;
-		else
-			params->size = ft_strlen(s);
 		return (printer_arg(s, params->type, params));
 	}
-	return (0);
+	ft_putstr("(null)");
+	return (6);
 }

@@ -1,1 +1,38 @@
-//note : + and - don't apply to hexa/octo
+#include <unistd.h>
+#include "ft_printf.h"
+#include "libft.h"
+
+/*
+** Flag is represented as a bit code
+** ...00001 > #
+** ...00010 > 0
+** ...00100 > -
+** ...01000 > sp
+** ...10000 > +
+*/
+
+int				prefix(t_index *params, const char type, int print)
+{
+	if (type == 'x' && (params->flags & 0x1))
+	{
+		write(1, "0x", 2 * print);
+		return (2);
+	}
+	if (type == 'X' && (params->flags & 0x1))
+	{
+		write(1, "0X", 2 * print);
+		return (2);	
+	}
+	if ((type != 'c' && type != 's') &&
+			(params->negative || params->flags & 0x19))
+	{
+		if (params->negative)
+			write(1, "-", 1 * print);
+		else if (params->flags & 0x10)
+			write(1, "+", 1 * print);
+		else if (params->flags & 0x8)
+			write(1, " ", 1 * print);
+		return (1);
+	}
+	return (0);
+}

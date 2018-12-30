@@ -29,28 +29,41 @@
 **	(prefix(1)) > (int_precision) > value > (float_precision) > width
 **
 **	(1) : prefix applies one of ('-', '+', ' ', '0/0x/0X')
+**
+** Flag is represented as a bit code
+** ...00001 > #
+** ...00010 > 0
+** ...00100 > -
+** ...01000 > sp
+** ...10000 > +
 */
 
 int					printer_arg(const char *s, const char c, t_index *params)
 {
 	int				printed;
 
-	if (!c) //DEBUG
-		return(0); //DEBUG
-
 	printed = 0;
-//	if (!(flags & 0x4))
-//		printed += width();
-//	printed += prefix();
-//	if (c == 'd' || c == 'i' || c == 'o' || c == 'x' || c == 'X' || c == 'u')
-//		printed += int_precision()
+	if (!(params->flags & 0x4) && (!(params->flags & 0x2) ||
+			(c != 'f' && params->precision != -1)))
+	{
+		printed += width(s, c, params);
+		printed += prefix(params, c, 1);
+	}
+	else
+	{
+		printed += prefix(params, c, 1);
+		if (!(params->flags & 0x4))
+			printed += width(s, c, params);
+	}
+	if (c != 's' && c != 'c' && c != 'f')
+		printed += int_precision(params);
 	if ((write(1, s, params->size) == -1))
 		return (printed);
 	printed += params->size;
-//	if (c == 'f')
-//		printed += float_precision();
-//	if (flags & 0x4)
-//		printed += width();
+	if (c == 'f')
+		printed += float_precision(s, params);
+	if (params->flags & 0x4)
+		printed += width(s, c, params);
 	return (printed);
 }
 

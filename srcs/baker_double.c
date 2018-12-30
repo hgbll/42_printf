@@ -10,8 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "ft_printf.h"
+#include "libft.h"
 
-// if return from dtoa is null, print "error"
-int				baker_double(double n, t_index *params);
-int				baker_longdouble(long double n, t_index *params);
+int				baker_double(double n, t_index *params)
+{
+	char		*result;
+	int			printed;
+
+	if (n < .0f)
+		params->negative = 1;
+	if (params->precision == -1)
+		params->precision = 6;
+	if ((result = ft_dtoa(n)))
+		if ((result = ft_round_double(result, params->precision)))
+		{
+			params->size = ft_strlen(result);
+			printed = printer_arg(result, params->type, params);
+			free(result);
+			return (printed);
+		}
+	ft_putstr("(null)");
+	return (6);
+}
+
+int				baker_longdouble(long double n, t_index *params)
+{
+	return (baker_double((double)n, params));
+}
