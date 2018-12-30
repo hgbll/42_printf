@@ -13,17 +13,17 @@
 
 int				prefix(t_index *params, const char type, int print)
 {
-	if (type == 'x' && (params->flags & 0x1))
+	if ((type == 'x' || type == 'o') && (params->flags & 0x1))
 	{
-		write(1, "0x", 2 * print);
-		return (2);
+		write(1, "0x", (1 + (type == 'x')) * print);
+		return (1 + (type == 'x'));
 	}
 	if (type == 'X' && (params->flags & 0x1))
 	{
 		write(1, "0X", 2 * print);
 		return (2);	
 	}
-	if ((type != 'c' && type != 's') &&
+	if ((type != 'c' && type != 's' && type != 'u') &&
 			(params->negative || params->flags & 0x19))
 	{
 		if (params->negative)

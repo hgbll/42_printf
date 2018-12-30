@@ -21,6 +21,7 @@ size_t				parser(const char *format,
 	t_index			params;
 	int				printed;
 
+	(*head)++;
 	ft_bzero(&params, sizeof(t_index));
 	params.precision = -1;
 	printed = -1;
@@ -32,13 +33,7 @@ size_t				parser(const char *format,
 					if (!check_length(format, head, &params))
 						printed = dispatcher(format[*head], args, &params);
 		if (printed != -1)
-		{
-//			printf("flags > %d\n", params.flags);
-//			printf("width > %ld\n", params.width);
-//			printf("precision > %ld\n", params.precision);
-//			printf("\nlength > %#X\n", params.length);
 			return ((size_t)printed);
-		}
 		(*head)++;
 	}
 	(*head)--;

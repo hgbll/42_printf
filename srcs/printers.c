@@ -38,7 +38,7 @@
 ** ...10000 > +
 */
 
-int					printer_arg(const char *s, const char c, t_index *params)
+static int			arg_prefixes(const char *s, const char c, t_index *params)
 {
 	int				printed;
 
@@ -55,6 +55,17 @@ int					printer_arg(const char *s, const char c, t_index *params)
 		if (!(params->flags & 0x4))
 			printed += width(s, c, params);
 	}
+	return (printed);
+}
+
+int					printer_arg(const char *s, const char c, t_index *params)
+{
+	int				printed;
+
+	if (c != 's' && c != 'c' && c != 'f'
+			&& s[0] == '0' && params->precision == 0)
+		params->size = 0;
+	printed = arg_prefixes(s, c, params);
 	if (c != 's' && c != 'c' && c != 'f')
 		printed += int_precision(params);
 	if ((write(1, s, params->size) == -1))

@@ -130,5 +130,12 @@ void		test_int(void)
 	printf("%d\n", printf("%#+095.34f\n", -150.438));
 	printf("%d\n", ft_printf("%#+095.34f\n", -150.438));
 
-	printf("%#.x", 0);
+	printf("%+50.d\n", 0);
+	ft_printf("%+50.d\n", 0);
+
+	printf("%+d\n", 0);
+	ft_printf("%+d\n", 0);
+
+	printf("%#6o\n", 43);
+	ft_printf("%#6o\n", 43);
 }
