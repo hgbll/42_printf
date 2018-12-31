@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2018/12/29 15:02:07 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/31 17:07:11 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS				:=	$(SRCSDIR)/ft_printf.c				\
 						$(SRCSDIR)/baker_long.c				\
 						$(SRCSDIR)/baker_longlong.c			\
 						$(SRCSDIR)/baker_double.c			\
+						$(SRCSDIR)/baker_longdouble.c		\
 						$(SRCSDIR)/baker_pointer.c			\
 						$(SRCSDIR)/prefix.c					\
 						$(SRCSDIR)/width.c					\

@@ -52,14 +52,12 @@ void	debug_print_memory(void)
 	unsigned char uc;
 	size_t asizet;
 	long *lptr;
-
-	lptr = &along;
-	along = (unsigned long long)lptr;
-
-	aulong = 0x7fff55a539b4ul;
-	bulong = 0x7fff521519b4ul;
-
-	print_memory(&aulong, 8);
-	print_memory(&bulong, 8);
-
+	unsigned long *ptr;
+	aulong = 0x8000000000000000ULL;
+	ptr = &aulong;
+	
+	adouble = *((double*)(ptr));
+	print_memory(&adouble, 8);
+	ptr = (unsigned long *)&adouble;
+	printf("%.50f\n", adouble);
 }
