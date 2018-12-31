@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 15:37:12 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/22 12:24:00 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 14:36:25 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,34 @@
 # include "libft.h"
 
 int		ft_printf(const char *format, ...);
-void	debug_printmemory(void);
-void	test_char();
+void	debug_print_memory(void);
 void	test_string();
 void 	test_int();
-void	test_real();
-void	test_misc();
+void	test_double();
+
+void		loop_short(int (*f)(const char*, ...), char *fmt,
+				short min, short max,
+				unsigned long long imax);
+void		loop_int(int (*f)(const char*, ...), char *fmt,
+				int min, int max,
+				unsigned long long imax);
+void		loop_long(int (*f)(const char*, ...), char *fmt,
+				long min, long max,
+				unsigned long long imax);
+void		loop_llong(int (*f)(const char*, ...), char *fmt,
+				long long min, long long max,
+				unsigned long long imax);
+void		loop_uint(int (*f)(const char*, ...), char *fmt,
+				unsigned int min, unsigned int max,
+				unsigned long long imax);
+void		loop_ulong(int (*f)(const char*, ...), char *fmt,
+				unsigned long min, unsigned long max,
+				unsigned long long imax);
+void		loop_ullong(int (*f)(const char*, ...), char *fmt,
+				unsigned long long min, unsigned long long max,
+				unsigned long long imax);
+void		loop_double(int (*f)(const char*, ...), char *fmt,
+				double min, double max, double step,
+				unsigned long long imax);
 
 #endif

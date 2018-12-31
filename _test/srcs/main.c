@@ -6,18 +6,23 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 15:20:10 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 15:51:23 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 15:16:13 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_test.h"
 
-int		main(void)
+int		main(int argc, char **argv)
 {
-//	debug_printmemory();
-	printf("\n|0       |10       |20\n");
-	test_string();
-	test_int();
-//	test_real();
+	if (!strcmp(argv[1], "printf"))
+	{
+//		test_int(&printf);
+		test_double(&printf);
+	}
+	if (!strcmp(argv[1], "ft_printf"))
+	{
+//		test_int(&ft_printf);
+		test_double(&ft_printf);
+	}
 	return (0);
 }

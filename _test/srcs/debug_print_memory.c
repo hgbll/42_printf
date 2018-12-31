@@ -37,10 +37,11 @@ static double	get_right(double n) //assumes positive and <= LONG_MAX
 	return (n);
 }
 
-void	debug_printmemory(void)
+void	debug_print_memory(void)
 {
 	long along;
 	unsigned long aulong;
+	unsigned long bulong;
 	int aint;
 	unsigned int auint;
 	double adouble;
@@ -50,4 +51,15 @@ void	debug_printmemory(void)
 	char c;
 	unsigned char uc;
 	size_t asizet;
+	long *lptr;
+
+	lptr = &along;
+	along = (unsigned long long)lptr;
+
+	aulong = 0x7fff55a539b4ul;
+	bulong = 0x7fff521519b4ul;
+
+	print_memory(&aulong, 8);
+	print_memory(&bulong, 8);
+
 }

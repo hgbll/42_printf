@@ -1,150 +1,547 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   test_int.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/19 16:08:42 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 16:12:21 by hbally           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf_test.h"
 
-void		test_int(void)
+void		test_int(int (*f)(const char*, ...))
 {
-	int a;
+	//BASIC
 
-	printf("___PTR___\n");
-	printf("%0100.50p\n", &a);
-	ft_printf("%p\n", &a);
-//	printf("%050llx\n", &a);
-	printf("%+050.100d\n", 42334820);
-	printf("%+050f\n", 430.8034);
-	printf("%d\n", sizeof(&a));
+	loop_int(f, "%d\n", 0, INT_MAX, 10000llu);
+	loop_int(f, "%d\n", 0, INT_MIN, 10000llu);
+	loop_int(f, "%d\n", INT_MAX, 0, 10000llu);
+	loop_int(f, "%d\n", INT_MIN, 0, 10000llu);
 
-	printf("___INT___\n");
+	loop_long(f, "%d\n", 0, LONG_MAX, 10000llu);
+	loop_long(f, "%d\n", 0, LONG_MIN, 10000llu);
+	loop_long(f, "%d\n", LONG_MAX, 0, 10000llu);
+	loop_long(f, "%d\n", LONG_MIN, 0, 10000llu);
 
-	ft_printf("%d\n", INT_MIN);
-	printf("%d\n", INT_MIN);
-	printf("___\n");
+	loop_llong(f, "%d\n", 0, LLONG_MAX, 10000llu);
+	loop_llong(f, "%d\n", 0, LLONG_MIN, 10000llu);
+	loop_llong(f, "%d\n", LLONG_MAX, 0, 10000llu);
+	loop_llong(f, "%d\n", LLONG_MIN, 0, 10000llu);
 
-	ft_printf("%d\n", INT_MAX);
-	printf("%d\n", INT_MAX);
-	printf("___\n");
+	loop_uint(f, "%d\n", 0, UINT_MAX, 10000llu);
+	loop_uint(f, "%d\n", UINT_MAX, 0, 10000llu);
 
-	ft_printf("%ld\n", LONG_MIN);
-	printf("%ld\n", LONG_MIN);
-	printf("___\n");
+	loop_ulong(f, "%d\n", 0, ULONG_MAX, 10000llu);
+	loop_ulong(f, "%d\n", ULONG_MAX, 0, 10000llu);
 
-	ft_printf("%ld\n", LONG_MAX);
-	printf("%ld\n", LONG_MAX);
-	printf("___\n");
+	loop_ullong(f, "%d\n", 0, ULLONG_MAX, 10000llu);
+	loop_ullong(f, "%d\n", ULLONG_MAX, 0, 10000llu);
 
-	ft_printf("%lld\n", LLONG_MAX);
-	printf("%lld\n", LLONG_MAX);
-	printf("___\n");
+	loop_int(f, "%x\n", 0, INT_MAX, 10000llu);
+	loop_int(f, "%x\n", 0, INT_MIN, 10000llu);
+	loop_int(f, "%x\n", INT_MAX, 0, 10000llu);
+	loop_int(f, "%x\n", INT_MIN, 0, 10000llu);
 
-	ft_printf("%lld\n", LLONG_MIN);
-	printf("%lld\n", LLONG_MIN);
-	printf("___\n");
+	loop_long(f, "%x\n", 0, LONG_MAX, 10000llu);
+	loop_long(f, "%x\n", 0, LONG_MIN, 10000llu);
+	loop_long(f, "%x\n", LONG_MAX, 0, 10000llu);
+	loop_long(f, "%x\n", LONG_MIN, 0, 10000llu);
 
-	ft_printf("%u\n", UINT_MAX);
-	printf("%u\n", UINT_MAX);
-	printf("___\n");
+	loop_llong(f, "%x\n", 0, LLONG_MAX, 10000llu);
+	loop_llong(f, "%x\n", 0, LLONG_MIN, 10000llu);
+	loop_llong(f, "%x\n", LLONG_MAX, 0, 10000llu);
+	loop_llong(f, "%x\n", LLONG_MIN, 0, 10000llu);
 
-	ft_printf("%lu\n", ULONG_MAX);
-	printf("%lu\n", ULONG_MAX);
-	printf("___\n");
+	loop_uint(f, "%x\n", 0, UINT_MAX, 10000llu);
+	loop_uint(f, "%x\n", UINT_MAX, 0, 10000llu);
 
-	ft_printf("%llu\n", ULLONG_MAX);
-	printf("%llu\n", ULLONG_MAX);
-	printf("___\n");
+	loop_ulong(f, "%x\n", 0, ULONG_MAX, 10000llu);
+	loop_ulong(f, "%x\n", ULONG_MAX, 0, 10000llu);
 
-	ft_printf("%X\n", UINT_MAX);
-	printf("%X\n", UINT_MAX);
-	printf("___\n");
+	loop_ullong(f, "%x\n", 0, ULLONG_MAX, 10000llu);
+	loop_ullong(f, "%x\n", ULLONG_MAX, 0, 10000llu);
 
-	ft_printf("%lX\n", ULONG_MAX);
-	printf("%lX\n", ULONG_MAX);
-	printf("___\n");
+	loop_int(f, "%X\n", 0, INT_MAX, 10000llu);
+	loop_int(f, "%X\n", 0, INT_MIN, 10000llu);
+	loop_int(f, "%X\n", INT_MAX, 0, 10000llu);
+	loop_int(f, "%X\n", INT_MIN, 0, 10000llu);
 
-	ft_printf("%llX\n", ULLONG_MAX);
-	printf("%llX\n", ULLONG_MAX);
-	printf("___\n");
+	loop_long(f, "%X\n", 0, LONG_MAX, 10000llu);
+	loop_long(f, "%X\n", 0, LONG_MIN, 10000llu);
+	loop_long(f, "%X\n", LONG_MAX, 0, 10000llu);
+	loop_long(f, "%X\n", LONG_MIN, 0, 10000llu);
 
-	ft_printf("%o\n", UINT_MAX);
-	printf("%o\n", UINT_MAX);
-	printf("___\n");
+	loop_llong(f, "%X\n", 0, LLONG_MAX, 10000llu);
+	loop_llong(f, "%X\n", 0, LLONG_MIN, 10000llu);
+	loop_llong(f, "%X\n", LLONG_MAX, 0, 10000llu);
+	loop_llong(f, "%X\n", LLONG_MIN, 0, 10000llu);
 
-	ft_printf("%lo\n", ULONG_MAX);
-	printf("%lo\n", ULONG_MAX);
-	printf("___\n");
+	loop_uint(f, "%X\n", 0, UINT_MAX, 10000llu);
+	loop_uint(f, "%X\n", UINT_MAX, 0, 10000llu);
 
-	ft_printf("%llo\n", ULLONG_MAX);
-	printf("%llo\n", ULLONG_MAX);
-	printf("___\n");
+	loop_ulong(f, "%X\n", 0, ULONG_MAX, 10000llu);
+	loop_ulong(f, "%X\n", ULONG_MAX, 0, 10000llu);
 
-	printf("%+d\n", 8439209);
-	ft_printf("%+d\n", 8439209);
+	loop_ullong(f, "%X\n", 0, ULLONG_MAX, 10000llu);
+	loop_ullong(f, "%X\n", ULLONG_MAX, 0, 10000llu);
 
-	ft_printf("%+d\n", 8439209);
+	loop_int(f, "%o\n", 0, INT_MAX, 10000llu);
+	loop_int(f, "%o\n", 0, INT_MIN, 10000llu);
+	loop_int(f, "%o\n", INT_MAX, 0, 10000llu);
+	loop_int(f, "%o\n", INT_MIN, 0, 10000llu);
 
-	printf("%+d\n", -8439209);
-	ft_printf("%+d\n", -8439209);
+	loop_long(f, "%o\n", 0, LONG_MAX, 10000llu);
+	loop_long(f, "%o\n", 0, LONG_MIN, 10000llu);
+	loop_long(f, "%o\n", LONG_MAX, 0, 10000llu);
+	loop_long(f, "%o\n", LONG_MIN, 0, 10000llu);
+
+	loop_llong(f, "%o\n", 0, LLONG_MAX, 10000llu);
+	loop_llong(f, "%o\n", 0, LLONG_MIN, 10000llu);
+	loop_llong(f, "%o\n", LLONG_MAX, 0, 10000llu);
+	loop_llong(f, "%o\n", LLONG_MIN, 0, 10000llu);
+
+	loop_uint(f, "%o\n", 0, UINT_MAX, 10000llu);
+	loop_uint(f, "%o\n", UINT_MAX, 0, 10000llu);
+
+	loop_ulong(f, "%o\n", 0, ULONG_MAX, 10000llu);
+	loop_ulong(f, "%o\n", ULONG_MAX, 0, 10000llu);
+
+	loop_ullong(f, "%o\n", 0, ULLONG_MAX, 10000llu);
+	loop_ullong(f, "%o\n", ULLONG_MAX, 0, 10000llu);
+
+	//WIDTH
+	loop_int(f, "%100d\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%100d\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%100d\n", INT_MAX, 0, 1000llu);
+	loop_int(f, "%100d\n", INT_MIN, 0, 1000llu);
+
+	loop_long(f, "%100d\n", 0, LONG_MAX, 1000llu);
+	loop_long(f, "%100d\n", 0, LONG_MIN, 1000llu);
+	loop_long(f, "%100d\n", LONG_MAX, 0, 1000llu);
+	loop_long(f, "%100d\n", LONG_MIN, 0, 1000llu);
+
+	loop_llong(f, "%100d\n", 0, LLONG_MAX, 1000llu);
+	loop_llong(f, "%100d\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%100d\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%100d\n", LLONG_MIN, 0, 1000llu);
+
+	loop_uint(f, "%100d\n", 0, UINT_MAX, 1000llu);
+	loop_uint(f, "%100d\n", UINT_MAX, 0, 1000llu);
+
+	loop_ulong(f, "%100d\n", 0, ULONG_MAX, 1000llu);
+	loop_ulong(f, "%100d\n", ULONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%100d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%100d\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_int(f, "%100x\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%100x\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%100x\n", INT_MAX, 0, 1000llu);
+	loop_int(f, "%100x\n", INT_MIN, 0, 1000llu);
+
+	loop_long(f, "%100x\n", 0, LONG_MAX, 1000llu);
+	loop_long(f, "%100x\n", 0, LONG_MIN, 1000llu);
+	loop_long(f, "%100x\n", LONG_MAX, 0, 1000llu);
+	loop_long(f, "%100x\n", LONG_MIN, 0, 1000llu);
+
+	loop_llong(f, "%100x\n", 0, LLONG_MAX, 1000llu);
+	loop_llong(f, "%100x\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%100x\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%100x\n", LLONG_MIN, 0, 1000llu);
+
+	loop_uint(f, "%100x\n", 0, UINT_MAX, 1000llu);
+	loop_uint(f, "%100x\n", UINT_MAX, 0, 1000llu);
+
+	loop_ulong(f, "%100x\n", 0, ULONG_MAX, 1000llu);
+	loop_ulong(f, "%100x\n", ULONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%100x\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%100x\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_int(f, "%100X\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%100X\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%100X\n", INT_MAX, 0, 1000llu);
+	loop_int(f, "%100X\n", INT_MIN, 0, 1000llu);
+
+	loop_long(f, "%100X\n", 0, LONG_MAX, 1000llu);
+	loop_long(f, "%100X\n", 0, LONG_MIN, 1000llu);
+	loop_long(f, "%100X\n", LONG_MAX, 0, 1000llu);
+	loop_long(f, "%100X\n", LONG_MIN, 0, 1000llu);
+
+	loop_llong(f, "%100X\n", 0, LLONG_MAX, 1000llu);
+	loop_llong(f, "%100X\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%100X\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%100X\n", LLONG_MIN, 0, 1000llu);
+
+	loop_uint(f, "%100X\n", 0, UINT_MAX, 1000llu);
+	loop_uint(f, "%100X\n", UINT_MAX, 0, 1000llu);
+
+	loop_ulong(f, "%100X\n", 0, ULONG_MAX, 1000llu);
+	loop_ulong(f, "%100X\n", ULONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%100X\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%100X\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_int(f, "%100o\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%100o\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%100o\n", INT_MAX, 0, 1000llu);
+	loop_int(f, "%100o\n", INT_MIN, 0, 1000llu);
+
+	loop_long(f, "%100o\n", 0, LONG_MAX, 1000llu);
+	loop_long(f, "%100o\n", 0, LONG_MIN, 1000llu);
+	loop_long(f, "%100o\n", LONG_MAX, 0, 1000llu);
+	loop_long(f, "%100o\n", LONG_MIN, 0, 1000llu);
+
+	loop_llong(f, "%100o\n", 0, LLONG_MAX, 1000llu);
+	loop_llong(f, "%100o\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%100o\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%100o\n", LLONG_MIN, 0, 1000llu);
+
+	loop_uint(f, "%100o\n", 0, UINT_MAX, 1000llu);
+	loop_uint(f, "%100o\n", UINT_MAX, 0, 1000llu);
+
+	loop_ulong(f, "%100o\n", 0, ULONG_MAX, 1000llu);
+	loop_ulong(f, "%100o\n", ULONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%100o\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%100o\n", ULLONG_MAX, 0, 1000llu);
+
+	//PRECISION
+	loop_int(f, "%.50d\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%.50d\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%.50d\n", INT_MAX, 0, 1000llu);
+	loop_int(f, "%.50d\n", INT_MIN, 0, 1000llu);
+
+	loop_long(f, "%.50d\n", 0, LONG_MAX, 1000llu);
+	loop_long(f, "%.50d\n", 0, LONG_MIN, 1000llu);
+	loop_long(f, "%.50d\n", LONG_MAX, 0, 1000llu);
+	loop_long(f, "%.50d\n", LONG_MIN, 0, 1000llu);
+
+	loop_llong(f, "%.50d\n", 0, LLONG_MAX, 1000llu);
+	loop_llong(f, "%.50d\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%.50d\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%.50d\n", LLONG_MIN, 0, 1000llu);
+
+	loop_uint(f, "%.50d\n", 0, UINT_MAX, 1000llu);
+	loop_uint(f, "%.50d\n", UINT_MAX, 0, 1000llu);
+
+	loop_ulong(f, "%.50d\n", 0, ULONG_MAX, 1000llu);
+	loop_ulong(f, "%.50d\n", ULONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%.50d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%.50d\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_int(f, "%.50x\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%.50x\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%.50x\n", INT_MAX, 0, 1000llu);
+	loop_int(f, "%.50x\n", INT_MIN, 0, 1000llu);
+
+	loop_long(f, "%.50x\n", 0, LONG_MAX, 1000llu);
+	loop_long(f, "%.50x\n", 0, LONG_MIN, 1000llu);
+	loop_long(f, "%.50x\n", LONG_MAX, 0, 1000llu);
+	loop_long(f, "%.50x\n", LONG_MIN, 0, 1000llu);
+
+	loop_llong(f, "%.50x\n", 0, LLONG_MAX, 1000llu);
+	loop_llong(f, "%.50x\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%.50x\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%.50x\n", LLONG_MIN, 0, 1000llu);
+
+	loop_uint(f, "%.50x\n", 0, UINT_MAX, 1000llu);
+	loop_uint(f, "%.50x\n", UINT_MAX, 0, 1000llu);
+
+	loop_ulong(f, "%.50x\n", 0, ULONG_MAX, 1000llu);
+	loop_ulong(f, "%.50x\n", ULONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%.50x\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%.50x\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_int(f, "%.50X\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%.50X\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%.50X\n", INT_MAX, 0, 1000llu);
+	loop_int(f, "%.50X\n", INT_MIN, 0, 1000llu);
+
+	loop_long(f, "%.50X\n", 0, LONG_MAX, 1000llu);
+	loop_long(f, "%.50X\n", 0, LONG_MIN, 1000llu);
+	loop_long(f, "%.50X\n", LONG_MAX, 0, 1000llu);
+	loop_long(f, "%.50X\n", LONG_MIN, 0, 1000llu);
+
+	loop_llong(f, "%.50X\n", 0, LLONG_MAX, 1000llu);
+	loop_llong(f, "%.50X\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%.50X\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%.50X\n", LLONG_MIN, 0, 1000llu);
+
+	loop_uint(f, "%.50X\n", 0, UINT_MAX, 1000llu);
+	loop_uint(f, "%.50X\n", UINT_MAX, 0, 1000llu);
+
+	loop_ulong(f, "%.50X\n", 0, ULONG_MAX, 1000llu);
+	loop_ulong(f, "%.50X\n", ULONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%.50X\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%.50X\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_int(f, "%.50o\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%.50o\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%.50o\n", INT_MAX, 0, 1000llu);
+	loop_int(f, "%.50o\n", INT_MIN, 0, 1000llu);
+
+	loop_long(f, "%.50o\n", 0, LONG_MAX, 1000llu);
+	loop_long(f, "%.50o\n", 0, LONG_MIN, 1000llu);
+	loop_long(f, "%.50o\n", LONG_MAX, 0, 1000llu);
+	loop_long(f, "%.50o\n", LONG_MIN, 0, 1000llu);
+
+	loop_llong(f, "%.50o\n", 0, LLONG_MAX, 1000llu);
+	loop_llong(f, "%.50o\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%.50o\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%.50o\n", LLONG_MIN, 0, 1000llu);
+
+	loop_uint(f, "%.50o\n", 0, UINT_MAX, 1000llu);
+	loop_uint(f, "%.50o\n", UINT_MAX, 0, 1000llu);
+
+	loop_ulong(f, "%.50o\n", 0, ULONG_MAX, 1000llu);
+	loop_ulong(f, "%.50o\n", ULONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%.50o\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%.50o\n", ULLONG_MAX, 0, 1000llu);
+
+	//MISC
+
+		//with signed int, positive
+	loop_int(f, "%+d\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%+100d\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%+100.50d\n", 0, INT_MAX, 1000llu);
+
+	loop_int(f, "% d\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "% 100d\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "% 100.50d\n", 0, INT_MAX, 1000llu);
+
+	loop_int(f, "%-d\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%-100d\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%-100.50d\n", 0, INT_MAX, 1000llu);
+
+	loop_int(f, "%#x\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%#100x\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%#100.50x\n", 0, INT_MAX, 1000llu);
+
+	loop_int(f, "%#X\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%#100X\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%#100.50X\n", 0, INT_MAX, 1000llu);
+
+	loop_int(f, "%#o\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%#100o\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%#100.50o\n", 0, INT_MAX, 1000llu);
+
+		//with signed int, negative
+	loop_int(f, "%+d\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%+100d\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%+100.50d\n", 0, INT_MIN, 1000llu);
+
+	loop_int(f, "% d\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "% 100d\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "% 100.50d\n", 0, INT_MIN, 1000llu);
+
+	loop_int(f, "%-d\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%-100d\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%-100.50d\n", 0, INT_MIN, 1000llu);
+
+		//with unsigned long
+	loop_ullong(f, "%+d\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%+100d\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%+100.50d\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "% d\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "% 100d\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "% 100.50d\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%-d\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%-100d\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%-100.50d\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%#d\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%#100d\n", ULLONG_MAX, 0, 10llu);
+	loop_ullong(f, "%#100.50d\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%#x\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%#100x\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%#100.50x\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%#X\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%#100X\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%#100.50X\n", ULLONG_MAX, 0, 1000llu);
 	
-	printf("%d\n", -8439209);
-	ft_printf("%d\n", -8439209);
+	loop_ullong(f, "%#o\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%#100o\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%#100.50o\n", ULLONG_MAX, 0, 1000llu);
 
-	printf("% d\n", 8439209);
-	ft_printf("% d\n", 8439209);
+		//with unsigned long from 0
+	loop_ullong(f, "%+d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%+100d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%+100.50d\n", 0, ULLONG_MAX, 1000llu);
 
-	printf("%# x\n", -8439209);
-	ft_printf("%# x\n", -8439209);
+	loop_ullong(f, "% d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "% 100d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "% 100.50d\n", 0, ULLONG_MAX, 1000llu);
 
-	printf("%.60p\n", &a);
-	ft_printf("%.60p\n", &a);
+	loop_ullong(f, "%-d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%-100d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%-100.50d\n", 0, ULLONG_MAX, 1000llu);
 
-	printf("%#X\n", -8439209);
-	ft_printf("%#X\n", -8439209);
+	loop_ullong(f, "%#d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%#100d\n", 0, ULLONG_MAX, 10llu);
+	loop_ullong(f, "%#100.50d\n", 0, ULLONG_MAX, 1000llu);
 
-	printf("%+060.50d\n", 150);
-	ft_printf("%+060.50d\n", 150);
+	loop_ullong(f, "%#x\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%#100x\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%#100.50x\n", 0, ULLONG_MAX, 1000llu);
 
-	printf("%+060.50d\n", 150);
-	ft_printf("%+060.50d\n", 150);
-
-	printf("%+060d\n", 150);
-	ft_printf("%+060d\n", 150);
-
-	printf("%+060.50f\n", 150.0);
-	ft_printf("%+060.50f\n", 150.0);
-
-	printf("%060.50s\n", "hello");
-	ft_printf("%060.50s\n", "hello");
-
-	printf("%060.50c\n", 'h');
-	ft_printf("%060.50c\n", 'h');
-
-	printf("%d\n", printf("%#+095.34f\n", -150.438));
-	printf("%d\n", ft_printf("%#+095.34f\n", -150.438));
-
-	printf("%+50.d\n", 0);
-	ft_printf("%+50.d\n", 0);
-
-	printf("%+d\n", 0);
-	ft_printf("%+d\n", 0);
-
-	printf("%#x\n", 0);
-	ft_printf("%#x\n", 0);
-
-	printf("%+x\n", 0);
-	ft_printf("%+x\n", 0);
-
-	printf("%#6o\n", 43);
-	ft_printf("%#6o\n", 43);
+	loop_ullong(f, "%#X\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%#100X\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%#100.50X\n", 0, ULLONG_MAX, 1000llu);
 	
-	printf("%   %\n", "test");
-	ft_printf("%   %\n", "test");
+	loop_ullong(f, "%#o\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%#100o\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%#100.50o\n", 0, ULLONG_MAX, 1000llu);
+
+		//with signed long, positive
+	loop_llong(f, "%+d\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%+100d\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%+100.50d\n", LLONG_MAX, 0, 1000llu);
+
+	loop_llong(f, "% d\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "% 100d\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "% 100.50d\n", LLONG_MAX, 0, 1000llu);
+
+	loop_llong(f, "%-d\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%-100d\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%-100.50d\n", LLONG_MAX, 0, 1000llu);
+
+		//with signed long, negative
+	loop_llong(f, "%+d\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%+100d\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%+100.50d\n", 0, LLONG_MIN, 1000llu);
+
+	loop_llong(f, "% d\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "% 100d\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "% 100.50d\n", 0, LLONG_MIN, 1000llu);
+
+	loop_llong(f, "%-d\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%-100d\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%-100.50d\n", 0, LLONG_MIN, 1000llu);
+
+	//All the previous tests but with '0' flag
+
+		//with signed int, positive
+	loop_int(f, "%0+d\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%0+100d\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%0+100.50d\n", 0, INT_MAX, 1000llu);
+
+	loop_int(f, "%0 d\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%0 100d\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%0 100.50d\n", 0, INT_MAX, 1000llu);
+
+	loop_int(f, "%0-d\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%0-100d\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%0-100.50d\n", 0, INT_MAX, 1000llu);
+
+	loop_int(f, "%0#x\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%0#100x\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%0#100.50x\n", 0, INT_MAX, 1000llu);
+
+	loop_int(f, "%0#X\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%0#100X\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%0#100.50X\n", 0, INT_MAX, 1000llu);
+
+	loop_int(f, "%0#o\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%0#100o\n", 0, INT_MAX, 1000llu);
+	loop_int(f, "%0#100.50o\n", 0, INT_MAX, 1000llu);
+
+		//with signed int, negative
+	loop_int(f, "%0+d\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%0+100d\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%0+100.50d\n", 0, INT_MIN, 1000llu);
+
+	loop_int(f, "%0 d\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%0 100d\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%0 100.50d\n", 0, INT_MIN, 1000llu);
+
+	loop_int(f, "%0-d\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%0-100d\n", 0, INT_MIN, 1000llu);
+	loop_int(f, "%0-100.50d\n", 0, INT_MIN, 1000llu);
+
+		//with unsigned long
+	loop_ullong(f, "%0+d\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%0+100d\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%0+100.50d\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%0 d\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%0 100d\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%0 100.50d\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%0-d\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%0-100d\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%0-100.50d\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%0#d\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%0#100d\n", ULLONG_MAX, 0, 10llu);
+	loop_ullong(f, "%0#100.50d\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%0#x\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%0#100x\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%0#100.50x\n", ULLONG_MAX, 0, 1000llu);
+
+	loop_ullong(f, "%0#X\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%0#100X\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%0#100.50X\n", ULLONG_MAX, 0, 1000llu);
+	
+	loop_ullong(f, "%0#o\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%0#100o\n", ULLONG_MAX, 0, 1000llu);
+	loop_ullong(f, "%0#100.50o\n", ULLONG_MAX, 0, 1000llu);
+
+		//with unsigned long from 0
+	loop_ullong(f, "%0+d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%0+100d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%0+100.50d\n", 0, ULLONG_MAX, 1000llu);
+
+	loop_ullong(f, "%0 d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%0 100d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%0 100.50d\n", 0, ULLONG_MAX, 1000llu);
+
+	loop_ullong(f, "%0-d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%0-100d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%0-100.50d\n", 0, ULLONG_MAX, 1000llu);
+
+	loop_ullong(f, "%0#d\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%0#100d\n", 0, ULLONG_MAX, 10llu);
+	loop_ullong(f, "%0#100.50d\n", 0, ULLONG_MAX, 1000llu);
+
+	loop_ullong(f, "%0#x\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%0#100x\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%0#100.50x\n", 0, ULLONG_MAX, 1000llu);
+
+	loop_ullong(f, "%0#X\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%0#100X\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%0#100.50X\n", 0, ULLONG_MAX, 1000llu);
+	
+	loop_ullong(f, "%0#o\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%0#100o\n", 0, ULLONG_MAX, 1000llu);
+	loop_ullong(f, "%0#100.50o\n", 0, ULLONG_MAX, 1000llu);
+
+		//with signed long, positive
+	loop_llong(f, "%0+d\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%0+100d\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%0+100.50d\n", LLONG_MAX, 0, 1000llu);
+
+	loop_llong(f, "%0 d\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%0 100d\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%0 100.50d\n", LLONG_MAX, 0, 1000llu);
+
+	loop_llong(f, "%0-d\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%0-100d\n", LLONG_MAX, 0, 1000llu);
+	loop_llong(f, "%0-100.50d\n", LLONG_MAX, 0, 1000llu);
+
+		//with signed long, negative
+	loop_llong(f, "%0+d\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%0+100d\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%0+100.50d\n", 0, LLONG_MIN, 1000llu);
+
+	loop_llong(f, "%0 d\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%0 100d\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%0 100.50d\n", 0, LLONG_MIN, 1000llu);
+
+	loop_llong(f, "%0-d\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%0-100d\n", 0, LLONG_MIN, 1000llu);
+	loop_llong(f, "%0-100.50d\n", 0, LLONG_MIN, 1000llu);
+
+		//pointers
+	f("%p\n", NULL);
 }

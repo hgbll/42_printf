@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 09:24:07 by hbally            #+#    #+#              #
-#    Updated: 2018/12/22 12:25:32 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/31 13:09:17 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,10 @@ SRCSDIR   			=	srcs
 
 SRCS			   :=	$(SRCSDIR)/main.c					\
 						$(SRCSDIR)/test_string.c			\
-						$(SRCSDIR)/test_real.c				\
-						$(SRCSDIR)/print_memory.c			\
-						$(SRCSDIR)/test_int.c
+						$(SRCSDIR)/test_double.c			\
+						$(SRCSDIR)/test_int.c				\
+						$(SRCSDIR)/loops.c				\
+						$(SRCSDIR)/debug_print_memory.c	
 
 OBJSDIR   			=	objs
 
@@ -39,18 +40,22 @@ CFLAGS			   +=	-g
 
 all					:	libs $(BINDIR)/$(NAME)
 
-.PHONY				:	this
-this				:	$(OBJS)
-						$(CC) -o $(NAME) $(CFLAGS) $(OBJS) -L../libft/ -lft
-						./test
-
 .PHONY				:	libs
 libs				:
 						make -C ../ 
 
 .PHONY				:	run
 run					:	all
-						./test
+						rm -f testoutput_printf
+						rm -f testoutput_ft_printf
+						./test printf > testoutput_printf
+						./test ft_printf > testoutput_ft_printf
+						diff testoutput_printf testoutput_ft_printf
+
+.PHONY				:	runverbose
+runverbose			:	all
+						./test printf
+						./test ft_printf
 
 $(BINDIR)/$(NAME)	: 	libs $(OBJS) 
 						$(CC) -o $@ $(CFLAGS) $(OBJS) $(LIBS)

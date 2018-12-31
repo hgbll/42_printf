@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/29 14:56:23 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 16:02:06 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 15:01:44 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,24 @@
 #include "ft_printf.h"
 #include "libft.h"
 
+/*
+** Length is represented as a bit code
+** ...00001 > hh
+** ...00010 > h
+** ...00100 > ll
+** ...01000 > l
+** ...10000 > L
+*/
+
 int				baker_pointer(void *p, t_index *params)
 {
-	if (!p)
-		return (0);
 	params->type = 'x';
-	params->flags |= 0x1;
-	if (sizeof(p) == 8)
+	if (!p)
 	{
-		params->length |= 0x4;
-		return (baker_longlong((unsigned long long)p, params));
+		ft_putstr("0x");
+		return (baker_int(0, params) + 2);
 	}
-	return (baker_int((unsigned int)p, params));
+	params->flags |= 0x1;
+	params->length |= 0x8;
+	return (baker_long((unsigned long)p, params));
 }
