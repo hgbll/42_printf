@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:13:36 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 11:44:48 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 11:50:00 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ static int			arg_prefixes(const char *s, const char c, t_index *params)
 	int				printed;
 
 	printed = 0;
+	if ((c != 's' && c != 'c' && c != 'f') &&
+			(s[0] == '0' && params->precision == 0))
+		params->size = 0;
 	if (!(params->flags & 0x4) && (!(params->flags & 0x2) ||
 			(c != 'f' && params->precision != -1)))
 	{
@@ -63,19 +66,13 @@ int					printer_arg(const char *s, const char c, t_index *params)
 {
 	int				printed;
 
-	if ((c != 's' && c != 'c' && c != 'f') &&
-			(s[0] == '0' && params->precision == 0))
-		params->size = 0;
 	printed = arg_prefixes(s, c, params);
-	if (c != 's' && c != 'c' && c != 'f')
-		printed += int_precision(params);
+	printed += (c != 's' && c != 'c' && c != 'f') ? int_precision(params) : 0;
 	if ((write(1, s, params->size) == -1))
 		return (printed);
 	printed += params->size;
-	if (c == 'f')
-		printed += float_precision(s, params);
-	if (params->flags & 0x4)
-		printed += width(s, c, params);
+	printed += (c == 'f') ? float_precision(s, params) : 0;
+	printed += (params->flags & 0x4) ? width(s, c, params) : 0;
 	return (printed);
 }
 
