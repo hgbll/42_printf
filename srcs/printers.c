@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:13:36 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 11:50:00 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 11:52:23 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int					printer_arg(const char *s, const char c, t_index *params)
 }
 
 /*
+**	--- printer_filler() ---
 **	Prints filler chars ' ' or '0' when needed by width
 **	or precision.
 */
@@ -110,6 +111,7 @@ int					printer_filler(const char c, long long len)
 }
 
 /*
+**	--- printer_fmt() ---
 **	Prints format in between arguments.
 */
 
