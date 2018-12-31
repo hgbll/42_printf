@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:20:54 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 17:07:24 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 17:21:21 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int		check_special(double n, t_index *params)
 {
 	char				string[10];
 	int					printed;
-	unsigned long long	*ptr; 
+	unsigned long long	*ptr;
 
 	string[0] = '\0';
 	ptr = (unsigned long long*)&n;
