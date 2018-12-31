@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 15:17:03 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/29 15:04:31 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 11:38:47 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 #include "libft.h"
 
 /*
- ** Length is represented as a bit code
- ** ...00001 > hh (1)
- ** ...00010 > h (2)
- ** ...00100 > ll (4)
- ** ...01000 > l (8)
- ** ...10000 > L (10)
- */
+** Length is represented as a bit code
+** ...00001 > hh (1)
+** ...00010 > h (2)
+** ...00100 > ll (4)
+** ...01000 > l (8)
+** ...10000 > L (10)
+*/
 
 static int		check_downcast(int n, t_index *params)
 {
