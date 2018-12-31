@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 15:13:36 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/31 11:52:23 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/31 17:50:52 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,29 +85,25 @@ int					printer_arg(const char *s, const char c, t_index *params)
 int					printer_filler(const char c, long long len)
 {
 	char			*buffer;
-	int				printed;
-	int				previous;
 	int				i;
 
-	i = 0;
-	printed = 0;
-	if (!(buffer = ft_strnew(BUFFER_SIZE)))
-		return (0);
-	while (i < len && i < BUFFER_SIZE)
-		buffer[i++] = c;
-	while (len > 0)
+	if (len <= 999999)
 	{
-		previous = printed;
-		printed += write(1, buffer, len < BUFFER_SIZE ? len : BUFFER_SIZE);
-		if (printed == previous - 1)
+		buffer = ft_strnew(len);
+		if (buffer)
 		{
+			i = 0;
+			while (i < len)
+			{
+				buffer[i] = c;
+				i++;
+			}
+			write(1, buffer, len);
 			free(buffer);
-			return (printed + 1);
+			return ((int)len);
 		}
-		len -= (long long)printed;
 	}
-	free(buffer);
-	return (printed);
+	return (0);
 }
 
 /*
