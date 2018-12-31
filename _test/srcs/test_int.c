@@ -136,6 +136,15 @@ void		test_int(void)
 	printf("%+d\n", 0);
 	ft_printf("%+d\n", 0);
 
+	printf("%#x\n", 0);
+	ft_printf("%#x\n", 0);
+
+	printf("%+x\n", 0);
+	ft_printf("%+x\n", 0);
+
 	printf("%#6o\n", 43);
 	ft_printf("%#6o\n", 43);
+	
+	printf("%   %\n", "test");
+	ft_printf("%   %\n", "test");
 }

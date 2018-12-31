@@ -58,7 +58,10 @@ size_t				printer_fmt(const char *format,
 									va_list *args);
 int					printer_filler(char c, long long len);
 
-int					prefix(t_index *params, const char type, int print);
+int					prefix(t_index *params,
+						const char *s,
+						const char type,
+						int print);
 int					width(const char *s, const char c, t_index *params);
 int					int_precision(t_index *params);
 int					float_precision(const char *s, t_index *params);

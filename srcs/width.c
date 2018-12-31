@@ -22,7 +22,7 @@ int				width(const char *s, const char c, t_index *params)
 	long long	to_print;
 
 	to_print = params->width;
-	to_print -= prefix(params, c, 0);
+	to_print -= prefix(params, s, c, 0);
 	if (c == 'f')
 	{
 		if ((params->precision == 0 && params->flags & 0x1) ||

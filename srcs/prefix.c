@@ -11,18 +11,31 @@
 ** ...10000 > +
 */
 
-int				prefix(t_index *params, const char type, int print)
+static int		prefix_hashtag(t_index *params,
+								const char *s,
+								const char type,
+								int print)
 {
-	if ((type == 'x' || type == 'o') && (params->flags & 0x1))
+	if ((type == 'x' || type == 'o') && (params->flags & 0x1) && s[0] != '0')
 	{
 		write(1, "0x", (1 + (type == 'x')) * print);
 		return (1 + (type == 'x'));
 	}
-	if (type == 'X' && (params->flags & 0x1))
+	if (type == 'X' && (params->flags & 0x1) && s[0] != '0')
 	{
 		write(1, "0X", 2 * print);
 		return (2);	
 	}
+	return (0);
+}
+
+int				prefix(t_index *params,
+						const char *s,
+						const char type,
+						int print)
+{
+	if (type == 'x' || type == 'X' || type == 'o')
+		return (prefix_hashtag(params, s, type, print));
 	if ((type != 'c' && type != 's' && type != 'u') &&
 			(params->negative || params->flags & 0x19))
 	{

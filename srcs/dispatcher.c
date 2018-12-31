@@ -12,7 +12,7 @@
 
 int				dispatcher(char c, va_list *args, t_index *params)
 {
-	params->type = (c != '%') ? c : '%';
+	params->type = (c != '%') ? c : 'c';
 	if (c == '%')
 		return (baker_char('%', params));
 	if (c == 'c')

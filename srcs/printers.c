@@ -47,11 +47,11 @@ static int			arg_prefixes(const char *s, const char c, t_index *params)
 			(c != 'f' && params->precision != -1)))
 	{
 		printed += width(s, c, params);
-		printed += prefix(params, c, 1);
+		printed += prefix(params, s, c, 1);
 	}
 	else
 	{
-		printed += prefix(params, c, 1);
+		printed += prefix(params, s, c, 1);
 		if (!(params->flags & 0x4))
 			printed += width(s, c, params);
 	}
