@@ -15,14 +15,22 @@
 
 int				baker_string(char *s, t_index *params)
 {
-	if (s)
+	char		error_handler[7];
+	int			printed;
+
+	if (!s)
 	{
-		params->size = ft_strlen(s);
+		ft_strcpy(error_handler, "(null)");
+		params->size = 6;
 		if (params->precision != -1 &&
 				params->precision < (long long)params->size)
 			params->size = params->precision;
-		return (printer_arg(s, params->type, params));
+		printed = printer_arg(error_handler, params->type, params);
+		return (printed);
 	}
-	ft_putstr("(null)");
-	return (6);
+	params->size = ft_strlen(s);
+	if (params->precision != -1 &&
+			params->precision < (long long)params->size)
+		params->size = params->precision;
+	return (printer_arg(s, params->type, params));
 }

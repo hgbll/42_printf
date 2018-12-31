@@ -54,6 +54,10 @@ void		test_string(void)
 	printf("%.6s\n", s);
 	printf("%.99999999s\n", s);
 	printf("%s\n", short_string);
+	printf("%50s\n", NULL);
+	ft_printf("%50s\n", NULL);
+	printf("%50c\n", 0);
+	ft_printf("%50c\n", 0);
 	
 	
 //	ret = ft_printf("char %c\n", c);
