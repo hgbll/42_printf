@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   prefix.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/31 12:02:17 by hbally            #+#    #+#             */
+/*   Updated: 2018/12/31 12:03:02 by hbally           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include "ft_printf.h"
 #include "libft.h"
@@ -16,7 +28,8 @@ static int		prefix_hashtag(t_index *params,
 								const char type,
 								int print)
 {
-	if (((type == 'x' && s[0] != '0') || type == 'o') && (params->flags & 0x1))
+	if (((type == 'x' && s[0] != '0') || type == 'o') &&
+			(params->flags & 0x1))
 	{
 		write(1, "0x", (1 + (type == 'x')) * print);
 		return (1 + (type == 'x'));
@@ -24,7 +37,7 @@ static int		prefix_hashtag(t_index *params,
 	if (type == 'X' && (params->flags & 0x1) && s[0] != '0')
 	{
 		write(1, "0X", 2 * print);
-		return (2);	
+		return (2);
 	}
 	return (0);
 }

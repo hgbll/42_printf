@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   width.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/31 12:03:12 by hbally            #+#    #+#             */
+/*   Updated: 2018/12/31 12:04:27 by hbally           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int		print_width(t_index *params, long long to_print)
@@ -8,11 +20,8 @@ static int		print_width(t_index *params, long long to_print)
 	if (to_print < 0)
 		return (0);
 	if ((!(params->flags & 0x4) && params->flags & 0x2) &&
-			(params->type == 'f' ||
-			 params->type == 's' ||
-			 params->type == 'c' ||
-				(params->type != 'f' &&
-				 params->precision == -1)))
+		(params->type == 'f' || params->type == 's' || params->type == 'c' ||
+		(params->type != 'f' && params->precision == -1)))
 		c = '0';
 	return (printer_filler(c, to_print));
 }

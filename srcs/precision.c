@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   precision.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/31 11:53:04 by hbally            #+#    #+#             */
+/*   Updated: 2018/12/31 12:00:56 by hbally           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include "libft.h"
 
-size_t			find_point(const char *s)
+size_t				find_point(const char *s)
 {
-	size_t		pos;
+	size_t			pos;
 
 	pos = 0;
 	while (s[pos] && s[pos] != '.')
@@ -21,7 +33,7 @@ int					float_precision(const char *s, t_index *params)
 	point_pos = find_point(s);
 	if (point_pos == params->size &&
 			(params->precision != 0 ||
-				(params->precision == 0 && params->flags & 0x1)))
+			(params->precision == 0 && params->flags & 0x1)))
 	{
 		ft_putchar('.');
 		printed++;
