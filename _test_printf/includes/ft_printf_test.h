@@ -19,9 +19,9 @@
 
 int		ft_printf(const char *format, ...);
 void	debug_print_memory(void);
-void	test_string();
-void 	test_int();
-void	test_double();
+void		test_int(int (*f)(const char*, ...));
+void		test_double(int (*f)(const char*, ...));
+void		test_string(int (*f)(const char*, ...));
 
 void		loop_short(int (*f)(const char*, ...), char *fmt,
 				short min, short max,

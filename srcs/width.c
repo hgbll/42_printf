@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static int		print_width(t_index *params, long long to_print)
+static int		print_width(t_index *params, long long to_print, int print)
 {
 	char		c;
 
@@ -23,10 +23,13 @@ static int		print_width(t_index *params, long long to_print)
 		(params->type == 'f' || params->type == 's' || params->type == 'c' ||
 		(params->type != 'f' && params->precision == -1)))
 		c = '0';
-	return (printer_filler(c, to_print));
+	if (print)
+		return (printer_filler(c, to_print));
+	else
+		return (to_print);
 }
 
-int				width(const char *s, const char c, t_index *params)
+int				width(const char *s, const char c, t_index *params, int print)
 {
 	long long	to_print;
 
@@ -48,5 +51,5 @@ int				width(const char *s, const char c, t_index *params)
 		else
 			to_print -= params->size;
 	}
-	return (print_width(params, to_print));
+	return (print_width(params, to_print, print));
 }

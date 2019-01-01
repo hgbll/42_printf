@@ -44,20 +44,18 @@ static int			arg_prefixes(const char *s, const char c, t_index *params)
 	int				printed;
 
 	printed = 0;
-	if ((c != 's' && c != 'c' && c != 'f') &&
-			(s[0] == '0' && params->precision == 0))
-		params->size = 0;
+	special_handler(s, c, params);
 	if (!(params->flags & 0x4) && (!(params->flags & 0x2) ||
 			(c != 'f' && params->precision != -1)))
 	{
-		printed += width(s, c, params);
+		printed += width(s, c, params, 1);
 		printed += prefix(params, s, c, 1);
 	}
 	else
 	{
 		printed += prefix(params, s, c, 1);
 		if (!(params->flags & 0x4))
-			printed += width(s, c, params);
+			printed += width(s, c, params, 1);
 	}
 	return (printed);
 }
@@ -72,7 +70,7 @@ int					printer_arg(const char *s, const char c, t_index *params)
 		return (printed);
 	printed += params->size;
 	printed += (c == 'f') ? float_precision(s, params) : 0;
-	printed += (params->flags & 0x4) ? width(s, c, params) : 0;
+	printed += (params->flags & 0x4) ? width(s, c, params, 1) : 0;
 	return (printed);
 }
 

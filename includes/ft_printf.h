@@ -16,18 +16,6 @@
 # include <stdarg.h>
 # include <string.h>
 
-# define BUFFER_SIZE 1023ll
-
-/*
- ** DEBUG FUNCTIONS TODO REMOVE
- */
-
-#include <stdio.h>
-#include <limits.h>
-/*
- ** ---------------------------
- */
-
 typedef struct		s_index
 {
 	char			type;
@@ -58,11 +46,17 @@ size_t				printer_fmt(const char *format,
 									va_list *args);
 int					printer_filler(char c, long long len);
 
+void				special_handler(const char *s,
+									const char c,
+									t_index *params);
 int					prefix(t_index *params,
 						const char *s,
 						const char type,
 						int print);
-int					width(const char *s, const char c, t_index *params);
+int					width(const char *s,
+							const char c,
+							t_index *params,
+							int print);
 int					int_precision(t_index *params);
 int					float_precision(const char *s, t_index *params);
 size_t				find_point(const char *s);

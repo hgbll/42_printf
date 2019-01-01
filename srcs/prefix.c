@@ -28,9 +28,7 @@ static int		prefix_hashtag(t_index *params,
 								const char type,
 								int print)
 {
-	if (((type == 'x' && s[0] != '0') ||
-		(type == 'o' && (params->precision == -1 || s[0] == '0'))) &&
-		(params->flags & 0x1))
+	if ((type == 'x' || type == 'o') && params->flags & 0x1)
 	{
 		write(1, "0x", (1 + (type == 'x')) * print);
 		return (1 + (type == 'x'));

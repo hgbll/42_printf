@@ -18,12 +18,13 @@ int		main(int argc, char **argv)
 	{
 		test_int(&printf);
 		test_double(&printf);
+		test_string(&printf);
 	}
 	if (!strcmp(argv[1], "ft_printf"))
 	{
-//		debug_print_memory();
 		test_int(&ft_printf);
 		test_double(&ft_printf);
+		test_string(&ft_printf);
 	}
 	return (0);
 }

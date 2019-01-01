@@ -29,7 +29,8 @@ SRCS				:=	$(SRCSDIR)/ft_printf.c				\
 						$(SRCSDIR)/baker_pointer.c			\
 						$(SRCSDIR)/prefix.c					\
 						$(SRCSDIR)/width.c					\
-						$(SRCSDIR)/precision.c
+						$(SRCSDIR)/precision.c				\
+						$(SRCSDIR)/special_handler.c
 
 OBJSDIR   			=	objs
 
@@ -44,13 +45,13 @@ CC					=	gcc
 
 CFLAGS				+=	-Wall -Werror -Wextra
 
-all					:	$(NAME)
+all					:	libft $(NAME)
 
-.PHONY				:	libs
-libs				:
-						make -C libft
+.PHONY				:	libft
+libft				:
+						@make -C libft
 
-$(NAME)				: 	libs $(OBJS)
+$(NAME)				: 	$(OBJS)
 						cp libft/libft.a $@
 						ar rc $@ $(OBJS)
 						ranlib $@
