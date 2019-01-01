@@ -41,6 +41,7 @@ void	debug_print_memory(void)
 {
 	long along;
 	unsigned long aulong;
+	unsigned long long aullong;
 	unsigned long bulong;
 	int aint;
 	unsigned int auint;
@@ -52,12 +53,18 @@ void	debug_print_memory(void)
 	unsigned char uc;
 	size_t asizet;
 	long *lptr;
-	unsigned long *ptr;
+	unsigned long long *ptr;
 	aulong = 0x8000000000000000ULL;
-	ptr = &aulong;
 	
-	adouble = *((double*)(ptr));
+	adouble = 99999999999999999999999999999999999999.f;
 	print_memory(&adouble, 8);
-	ptr = (unsigned long *)&adouble;
-	printf("%.50f\n", adouble);
+
+	aullong = *(unsigned long long*)(&adouble);
+	print_memory(&adouble, 8);
+
+//	adouble = 1.0 / 0.0;
+//	print_memory(&adouble, 8);
+
+	if (adouble == 1.0 / 0.0)
+		printf("impossible");
 }

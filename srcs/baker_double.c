@@ -21,7 +21,7 @@ static int		check_special(double n, t_index *params)
 	unsigned long long	*ptr;
 
 	string[0] = '\0';
-	ptr = (unsigned long long*)&n;
+	ptr = (unsigned long long*)(&n);
 	if (*ptr == 0x7FF0000000000000ULL)
 		ft_strcpy(string, "inf");
 	else if (*ptr == 0xFFF0000000000000ULL)
