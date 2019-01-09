@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 17:12:38 by hbally            #+#    #+#             */
-/*   Updated: 2019/01/09 17:12:38 by hbally           ###   ########.fr       */
+/*   Updated: 2019/01/09 17:55:42 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct		s_index
 	size_t			size;
 }					t_index;
 
-int					printf(const char *format, ...);
+int					ft_printf(const char *format, ...);
 size_t				parser(const char *format, size_t *head, va_list *args);
 int					dispatcher(char c, va_list *args, t_index *params);
 
