@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 /*
 ** Length is represented as a bit code

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 #include "libft.h"
 
 int				baker_string(char *s, t_index *params)
