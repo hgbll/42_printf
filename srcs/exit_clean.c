@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoa.c                                         :+:      :+:    :+:   */
+/*   exit_clean.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/14 10:10:36 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/16 10:30:23 by hbally           ###   ########.fr       */
+/*   Created: 2019/01/17 16:00:29 by hbally            #+#    #+#             */
+/*   Updated: 2019/01/25 18:46:57 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <errno.h>
+#include "ft_printf.h"
 #include "libft.h"
-#include <string.h>
 
-char				*ft_uitoa(unsigned int n)
+int				set_errno(int error)
 {
-	size_t			len;
-	char			*ret;
+	if (error == NO_FMT_STRING)
+		errno = EINVAL;
+	if (error == BAD_FD)
+		errno = EBADF;
+	return (-1);
+}
 
-	len = 0;
-	if (!(ret = ft_strnew(len)))
-		return (NULL);
-	while (n != 0 || !len)
-	{
-		if (!(ret = ft_str_realloc(ret, ++len)))
-			return (NULL);
-		ft_memmove(&ret[1], &ret[0], len);
-		ret[0] = '0' + (n % 10u);
-		n /= 10u;
-	}
-	return (ret);
+int				exit_clean(char **ret, t_index *params)
+{
+	if (ret && params->buf && !params->error)
+		*ret = params->buf;
+	if (params->error && params->buf)
+		ft_memdel((void**)&(params->buf));
+	if (!params->error)
+		return (params->head);
+	else
+		return (-1);
 }

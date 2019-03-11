@@ -5,37 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/20 15:15:51 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/22 17:05:44 by hbally           ###   ########.fr       */
+/*   Created: 2019/01/17 14:09:48 by hbally            #+#    #+#             */
+/*   Updated: 2019/01/17 17:25:49 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include "libft.h"
 
-size_t				parser(const char *format,
-							size_t *head,
-							va_list *args)
+int					parser(const char *format, t_index *params, va_list *args)
 {
-	t_index			params;
-	int				printed;
-
-	(*head)++;
-	ft_bzero(&params, sizeof(t_index));
-	params.precision = -1;
-	printed = -1;
-	while (format[*head])
+	params->fmt_head++;
+	params->precision = -1;
+	while (format[params->fmt_head])
 	{
-		if (!check_flag(format[*head], &params))
-			if (!check_width(format, head, &params))
-				if (!check_precision(format, head, &params))
-					if (!check_length(format, head, &params))
-						printed = dispatcher(format[*head], args, &params);
-		if (printed != -1)
-			return ((size_t)printed);
-		(*head)++;
+		if (!check_flag(format[params->fmt_head], params) &&
+			!check_width(format, &(params->fmt_head), params, args) &&
+			!check_precision(format, &(params->fmt_head), params) &&
+			!check_length(format, &(params->fmt_head), params) &&
+			dispatcher(format[params->fmt_head], args, params) == ARG_FOUND)
+		{
+			return (ARG_FOUND);
+		}
+		params->fmt_head++;
 	}
-	(*head)--;
+	params->fmt_head--;
 	return (0);
 }
