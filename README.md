@@ -1,2 +1,2 @@
 # 42_printf
-Learning Project - Partial re-implementation of the classic libc function, printf().
+Supports %d and conversions to hexadecimal/octal, as well as %f.
